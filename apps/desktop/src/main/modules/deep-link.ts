@@ -20,7 +20,8 @@ import { verifyLicenseKey } from './license-validator.js';
 import { openAreaEditorWindow } from '../area-editor-window.js';
 import { IPC_CHANNELS } from '../../shared/ipc-channels.js';
 
-const PROTOCOL = 'ardudeck';
+// Do not replace the official application's protocol registration.
+const PROTOCOL = 'ardudeck-ru';
 
 let getWindow: (() => BrowserWindow | null) | null = null;
 // A deep link can arrive before the window/renderer is ready (cold start via

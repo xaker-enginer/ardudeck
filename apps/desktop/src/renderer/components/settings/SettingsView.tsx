@@ -2671,7 +2671,7 @@ function AboutSection() {
     (async () => {
       try {
         setNotesState('loading');
-        const res = await fetch('https://api.github.com/repos/rubenCodeforges/ardudeck/releases?per_page=15', {
+        const res = await fetch('https://api.github.com/repos/xaker-enginer/ardudeck/releases?per_page=15', {
           headers: { Accept: 'application/vnd.github+json' },
         });
         if (!res.ok) throw new Error(`GitHub ${res.status}`); // i18n-exempt: internal, never shown
@@ -2711,7 +2711,7 @@ function AboutSection() {
 
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com/rubenCodeforges/ardudeck"
+              href="https://github.com/xaker-enginer/ardudeck"
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 text-xs text-content-secondary hover:text-content border border-border hover:border-border rounded-lg transition-colors"
@@ -2859,7 +2859,7 @@ function AboutSection() {
         {notesState === 'error' && (
           <p className="text-sm text-content-tertiary">
             {t('settings:settingsView.about.notesError')}{' '}
-            <a href="https://github.com/rubenCodeforges/ardudeck/releases" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400">
+            <a href="https://github.com/xaker-enginer/ardudeck/releases" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400">
               {t('settings:settingsView.about.viewOnGithub')}
             </a>
           </p>

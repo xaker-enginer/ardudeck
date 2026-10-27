@@ -75,7 +75,7 @@ export async function initAutoUpdater(win: BrowserWindow): Promise<void> {
       status: 'available',
       latestVersion: info.version,
       releaseName: info.releaseName ?? `v${info.version}`,
-      releaseUrl: `https://github.com/rubenCodeforges/ardudeck/releases/tag/v${info.version}`,
+      releaseUrl: `https://github.com/xaker-enginer/ardudeck/releases/tag/v${info.version}`,
       publishedAt: info.releaseDate ?? '',
     });
   });
@@ -99,7 +99,7 @@ export async function initAutoUpdater(win: BrowserWindow): Promise<void> {
       status: 'downloaded',
       latestVersion: info.version,
       releaseName: info.releaseName ?? `v${info.version}`,
-      releaseUrl: `https://github.com/rubenCodeforges/ardudeck/releases/tag/v${info.version}`,
+      releaseUrl: `https://github.com/xaker-enginer/ardudeck/releases/tag/v${info.version}`,
       publishedAt: info.releaseDate ?? '',
     });
   });

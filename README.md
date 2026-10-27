@@ -1,326 +1,404 @@
-## Русский перевод
+# ArduDeck RU
 
-Это неофициальный форк [ArduDeck](https://github.com/rubenCodeforges/ardudeck) с русским интерфейсом, поддерживаемый [xaker-enginer](https://github.com/xaker-enginer). Изменения от 27.10.2026: русская локализация, проверки перевода, перевод подсказки удаления точки маршрута и исправление описаний элеронов. Автор исходного проекта: Ruben M (rubenCodeforges).
+**Неофициальный форк ArduDeck с русским интерфейсом**, поддерживаемый [xaker-enginer](https://github.com/xaker-enginer). Автор исходного проекта: **Ruben M / rubenCodeforges**. [Исходный репозиторий](https://github.com/rubenCodeforges/ardudeck).
 
-Выбор языка: **Settings → Language → Русский**. Подробности, границы перевода и проверка: [Русская локализация](TRANSLATION-RU.md).
+Изменения от 27.10.2026: перевод всех 56 разделов словаря интерфейса, русские формы числительных, проверки локализации, уточнение подписей и описаний элеронов, русская документация и подготовка установщика Windows. Подробности: [Русская локализация](TRANSLATION-RU.md).
 
-Перевод опубликован в исходниках этого форка под **GPL-3.0**. Исходные [лицензия](LICENSE), [исключение для модулей](MODULE-EXCEPTION.md) и уведомления об авторстве сохранены. Ссылки на официальные релизы ниже ведут к сборкам исходного проекта; они не включают изменения этого форка.
+**[Скачать русскую сборку для Windows](https://github.com/xaker-enginer/ardudeck/releases)** · [Установка](#download--install) · [Сборка Windows из исходников](docs/BUILD-WINDOWS-RU.md)
+
+> **Состав сборки форка.** ArduDeck RU рассчитан на обычное прямое подключение к аппарату, в том числе к FPV-самолёту с ArduPilot/ArduPlane. Закрытый движок группового управления **orchestrator не распространяется**: функции группы аппаратов, построений и групповой симуляции в этой сборке недоступны. Открытые симулятор и генератор моделей собираются из исходников. Ниже сохранено подробное описание возможностей исходного ArduDeck; функции, зависящие от orchestrator, отмечены отдельно.
+
+В установщик также не включены старые встроенные прошивки APM1/APM2 и готовые
+бинарники iNav SITL. ArduPilot SITL загружает необходимые файлы отдельно.
+Полный состав и ограничения приведены в [инструкции Windows](docs/BUILD-WINDOWS-RU.md#состав-и-ограничения).
 
 ---
 
 <p align="center">
-  <img src="apps/desktop/resources/banner.png" alt="ArduDeck" />
+  <img src="apps/desktop/resources/banner.png" alt="ArduDeck — исходный проект" />
 </p>
 
 <p align="center">
-  <a href="https://opensource.org/licenses/GPL-3.0"><img src="https://img.shields.io/badge/License-GPL%203.0-blue.svg" alt="License: GPL-3.0" /></a>
+  <a href="https://opensource.org/licenses/GPL-3.0"><img src="https://img.shields.io/badge/License-GPL%203.0-blue.svg" alt="Лицензия GPL-3.0" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript" alt="TypeScript" /></a>
   <a href="https://www.electronjs.org/"><img src="https://img.shields.io/badge/Electron-44-47848F?logo=electron" alt="Electron" /></a>
   <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-18-61DAFB?logo=react" alt="React" /></a>
   <a href="https://mavlink.io/"><img src="https://img.shields.io/badge/MAVLink-v1%2Fv2-green" alt="MAVLink" /></a>
   <a href="https://github.com/iNavFlight/inav/wiki/MSP-V2"><img src="https://img.shields.io/badge/MSP-v1%2Fv2-orange" alt="MSP" /></a>
-  <a href="https://codecov.io/gh/rubenCodeforges/ardudeck"><img src="https://codecov.io/gh/rubenCodeforges/ardudeck/branch/master/graph/badge.svg" alt="Coverage" /></a>
-  <a href="https://discord.gg/JX2JdVXPPC"><img src="https://img.shields.io/badge/Discord-Join%20Us-5865F2?logo=discord&logoColor=white" alt="Discord" /></a>
-  <a href="https://forum.ardudeck.com"><img src="https://img.shields.io/badge/Forum-forum.ardudeck.com-f59e0b" alt="Forum" /></a>
-  <a href="https://ardudeck.com"><img src="https://img.shields.io/badge/Website-ardudeck.com-22d3ee" alt="Website" /></a>
+  <a href="https://codecov.io/gh/rubenCodeforges/ardudeck"><img src="https://codecov.io/gh/rubenCodeforges/ardudeck/branch/master/graph/badge.svg" alt="Покрытие тестами исходного проекта" /></a>
+  <a href="https://discord.gg/JX2JdVXPPC"><img src="https://img.shields.io/badge/Discord-Join%20Us-5865F2?logo=discord&logoColor=white" alt="Discord исходного проекта" /></a>
+  <a href="https://forum.ardudeck.com"><img src="https://img.shields.io/badge/Forum-forum.ardudeck.com-f59e0b" alt="Форум исходного проекта" /></a>
+  <a href="https://ardudeck.com"><img src="https://img.shields.io/badge/Website-ardudeck.com-22d3ee" alt="Сайт исходного проекта" /></a>
 </p>
 
 <p align="center">
-  <a href="https://ardudeck.com">Website</a> &nbsp;·&nbsp;
-  <a href="https://ardudeck.com/docs/">Documentation</a> &nbsp;·&nbsp;
-  <a href="https://ardudeck.com/blog/">Guides &amp; Screenshots</a> &nbsp;·&nbsp;
-  <a href="https://forum.ardudeck.com">Community Forum</a> &nbsp;·&nbsp;
+  Ресурсы исходного проекта:<br/>
+  <a href="https://ardudeck.com">Сайт</a> &nbsp;·&nbsp;
+  <a href="https://ardudeck.com/docs/">Документация</a> &nbsp;·&nbsp;
+  <a href="https://ardudeck.com/blog/">Руководства и снимки экранов</a> &nbsp;·&nbsp;
+  <a href="https://forum.ardudeck.com">Форум сообщества</a> &nbsp;·&nbsp;
   <a href="https://discord.gg/JX2JdVXPPC">Discord</a>
 </p>
 
 <p align="center">
-  <strong>A modern, cross-platform ground control station for ArduPilot, Betaflight, and iNav.</strong>
+  <strong>Современная наземная станция управления для ArduPilot, Betaflight и iNav.</strong>
 </p>
 
 <p align="center">
-  <sub>Supported by</sub><br />
-  <a href="https://adlerblix.de" target="_blank" rel="noopener noreferrer"><img src="docs/sponsors/adlerblix.svg" alt="Adlerblix - optical aerial surveying" height="40" /></a>
+  <sub>Исходный проект поддерживают</sub><br />
+  <a href="https://adlerblix.de" target="_blank" rel="noopener noreferrer"><img src="docs/sponsors/adlerblix.svg" alt="Adlerblix — оптическая аэросъёмка" height="40" /></a>
   &nbsp;&nbsp;
-  <a href="https://www.uav-dev.com" target="_blank" rel="noopener noreferrer"><img src="docs/sponsors/uav-dev.svg" alt="UAV-DEV - autonomous systems hardware" height="40" /></a>
+  <a href="https://www.uav-dev.com" target="_blank" rel="noopener noreferrer"><img src="docs/sponsors/uav-dev.svg" alt="UAV-DEV — оборудование автономных систем" height="40" /></a>
 </p>
 
-ArduDeck is an open-source ground control station built with Electron, React, and TypeScript. One app covers the whole workflow: connect, configure, calibrate, plan, fly, and analyze, for vehicles running ArduPilot (MAVLink) or Betaflight/iNav (MSP), from a single quad on USB to a fleet of vehicles on radio, IP, or cellular links.
+ArduDeck — наземная станция управления с открытым исходным кодом на Electron, React и TypeScript. В одном приложении собраны подключение, настройка, калибровка, планирование миссий, управление и анализ полётов. Поддерживаются аппараты с ArduPilot по MAVLink и с Betaflight/iNav по MSP, подключённые через USB, радиомодем или IP-сеть. Исходный проект также предусматривает управление группой аппаратов через отдельный движок; этот закрытый компонент в ArduDeck RU отсутствует.
 
-> **Beta (0.1.2)** - ArduDeck is in beta. It is used in real flight operations, but expect rough edges and keep a backup configuration tool available. Ask questions and share setups on the [community forum](https://forum.ardudeck.com) or [Discord](https://discord.gg/JX2JdVXPPC), read the [documentation](https://ardudeck.com/docs/), or use the built-in [bug reporting](#bug-reporting) to help improve the project.
+> **Бета-версия на основе 0.1.2.** Проект продолжает развиваться. Проверка перевода и запуска приложения не заменяет испытания с вашей платой, прошивкой и каналом связи. Держите под рукой резервный инструмент настройки и сохранённую конфигурацию. Ошибки русского форка можно сообщать в [его Issues](https://github.com/xaker-enginer/ardudeck/issues). Общие вопросы об ArduDeck обсуждаются на [форуме исходного проекта](https://forum.ardudeck.com) и в [Discord](https://discord.gg/JX2JdVXPPC); также доступны [документация](https://ardudeck.com/docs/) и [встроенный сбор отчётов](#bug-reporting).
 
 ---
 
-## Table of Contents
+## Содержание
 
-- [Screenshots](#screenshots)
-- [Features](#features)
-- [Download & Install](#download--install)
-- [Supported Vehicles & Firmware](#supported-vehicles--firmware)
-- [Building from Source](#building-from-source)
-- [Bug Reporting](#bug-reporting)
-- [Languages & Translating](#languages--translating)
-- [Contributing](#contributing)
-- [Sponsors](#sponsors)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Снимки интерфейса](#screenshots)
+- [Возможности](#features)
+- [Скачивание и установка](#download--install)
+- [Поддерживаемые аппараты и прошивки](#supported-vehicles--firmware)
+- [Сборка из исходников](#building-from-source)
+- [Сообщения об ошибках](#bug-reporting)
+- [Языки и перевод](#languages--translating)
+- [Участие в разработке](#contributing)
+- [Поддержка исходного проекта](#sponsors)
+- [Лицензия](#license)
+- [Благодарности](#acknowledgments)
 
 ---
 
-## Screenshots
+<a id="screenshots"></a>
+
+## Снимки интерфейса
 
 <p align="center">
-  <a href="docs/screenshots/_new/mission_planning_overview.png?raw=true">
-    <img src="docs/screenshots/_new/mission_planning_overview.png" alt="Mission and survey planning" width="800"/>
-  </a>
-  <br/>
-  <em>Mission planning with grouped waypoints, a terrain-aware altitude profile, and live flight-info estimates</em>
-</p>
-
-<p align="center">
-  <a href="docs/screenshots/_new/osd_simulator_demo.png?raw=true">
-    <img src="docs/screenshots/_new/osd_simulator_demo.png" alt="OSD Tool" width="800"/>
-  </a>
-  <br/>
-  <em>OSD Tool: composable ground-rendered HUD, flight controller Text OSD editor, and RubyFPV layout authoring</em>
+  <a href="docs/screenshots/ru/home.png?raw=true"><img src="docs/screenshots/ru/home.png" alt="Стартовый экран ArduDeck на русском языке" width="800"/></a><br/>
+  <em>Русский интерфейс форка: стартовый экран</em>
 </p>
 
 <p align="center">
-  <a href="docs/screenshots/_new/lua_loaded_template.png?raw=true">
-    <img src="docs/screenshots/_new/lua_loaded_template.png" alt="Lua Graph Editor" width="800"/>
-  </a>
-  <br/>
-  <em>Lua Graph Editor: build ArduPilot Lua scripts visually, with live code preview and export</em>
+  <a href="docs/screenshots/ru/settings.png?raw=true"><img src="docs/screenshots/ru/settings.png" alt="Настройки ArduDeck на русском языке" width="800"/></a><br/>
+  <em>Русские настройки в окне 1100×800</em>
 </p>
 
-More screenshots, guides, and full documentation live on the website: [ardudeck.com/docs](https://ardudeck.com/docs/). Have a question or want to share a build? Join the [community forum](https://forum.ardudeck.com).
+Следующие снимки сохранены из исходного проекта и показывают его возможности:
+
+<p align="center">
+  <a href="docs/screenshots/_new/mission_planning_overview.png?raw=true"><img src="docs/screenshots/_new/mission_planning_overview.png" alt="Планирование миссий и аэросъёмки" width="800"/></a><br/>
+  <em>Группы точек маршрута, высотный профиль с учётом рельефа и расчёт характеристик полёта</em>
+</p>
+
+<p align="center">
+  <a href="docs/screenshots/_new/osd_simulator_demo.png?raw=true"><img src="docs/screenshots/_new/osd_simulator_demo.png" alt="Редактор OSD" width="800"/></a><br/>
+  <em>Редактор OSD: приборы поверх наземного видео, текстовый OSD контроллера и компоновки RubyFPV</em>
+</p>
+
+<p align="center">
+  <a href="docs/screenshots/_new/lua_loaded_template.png?raw=true"><img src="docs/screenshots/_new/lua_loaded_template.png" alt="Визуальный редактор Lua" width="800"/></a><br/>
+  <em>Создание скриптов Lua для ArduPilot с просмотром кода и экспортом</em>
+</p>
+
+Другие снимки, руководства и полная документация исходного проекта: [ardudeck.com/docs](https://ardudeck.com/docs/). Обсудить настройку или поделиться своей сборкой можно на [форуме сообщества](https://forum.ardudeck.com).
 
 ---
 
-## Features
+<a id="features"></a>
 
-### Flight Operations
-- **Dockable telemetry dashboard** - attitude, altitude, speed, GPS, battery, flight mode, and messages in IDE-style panels with saveable layouts
-- **Interactive map** - live vehicle tracking, flight trail, multiple base layers, offline map downloads
-- **Map overlays** - weather radar, animated wind flow, airspace zones, OpenAIP aviation charts, terrain elevation, and live air traffic (ADS-B / OGN)
-- **Instruments on the map** - 30+ floating instruments (attitude, altitude and speed tapes, heading, battery, GPS and RTK, wind, rangefinder and proximity, EKF health, flight timer, mission progress, messages, and more), each with analog, numeric and compact variants; drag them anywhere and group them; they stay where you put them
-- **Synthetic vision** - 3D terrain view with satellite imagery from your choice of map provider
-- **Video and camera** - camera panel with pluggable sources (WebRTC, RTSP/ffmpeg, UVC), gimbal control, and a guided setup for wfb-ng / RunCam WiFiLink links
-- **Stream out** - publish the synthetic vision or 3D sim view as RTSP, SRT or WebRTC for OpenCV, VLC or a browser
-- **Flight commands** where they belong: arm/disarm, takeoff, mode changes, and guided "fly here" from the telemetry screen
-- **In-flight adjustments** - change speed, altitude and loiter radius mid-flight from an instrument, with one-click revert
-- **Virtual sticks** - fly from on-screen sticks or a USB joystick, with a handover check before control switches
+## Возможности
 
-### Multi-Vehicle
-- **One-button engine** - a single click starts a local coordination engine; ArduDeck connects to it automatically
-- **Simple vehicle onboarding** - "Add a vehicle" over radio, internet, cellular (4G/5G modem over IP), or a second ground station
-- **Fleet operations** - per-vehicle telemetry and commanding, a fleet strip with health at a glance, colour-coded map markers, formation controls, and group actions
-- **Fleet survey split** - divide a survey area across multiple vehicles
-- **Fleet log retrieval** - download logs from every vehicle through the engine for side-by-side analysis
-- **Vehicle focus** - pick any fleet vehicle and calibrate, motor test, browse files, download logs or reboot it as if it were the only one
+Это описание функций исходного ArduDeck. Доступность зависит от аппарата, прошивки, оборудования и дополнительных модулей. Перевод интерфейса не означает, что каждая функция была испытана в русской сборке.
 
-### RTK GPS Corrections (NTRIP)
-- **Built-in NTRIP client** - connect to any NTRIP caster, browse the sourcetable, and stream RTCM corrections to the vehicle
-- **NTRIP v1 and v2** - proper v2 (HTTP/1.1, chunked) with automatic fallback to classic v1 casters
-- **GGA position reporting** back to the caster for network (VRS) mountpoints
-- **Direct link or fleet-wide** - corrections flow over a single connection, or to every vehicle through the multi-vehicle engine
+### Работа во время полёта
 
-### Mission Planning
-- **Interactive editing** - click to add waypoints, drag to reposition, undo/redo, continuous autosave with crash recovery
-- **Mission groups** - waypoints organized into named, colored groups (manual or survey) with per-group stats, show/hide, and per-group upload or save
-- **Altitude-frame-aware profile** - the terrain profile understands relative, AMSL, and terrain MAVLink frames per waypoint, with drag-to-edit altitudes
-- **Terrain collision detection** - visual warnings where the path meets terrain, with one-click Auto Adjust
-- **Waypoint heading and insert** - set the heading at each waypoint and insert waypoints between existing ones
-- **Spline waypoints, 3D view, mission library** - curved paths, three-dimensional visualization, and a local library plus .waypoints (QGC WPL) and .plan import/export
-- **Full MAVLink mission protocol** - upload, download, geofence, and rally points; the telemetry map shows only what is actually on the vehicle
+- **Перестраиваемая панель телеметрии** — ориентация, высота, скорость, GPS, батарея, режим полёта и сообщения в отдельных закрепляемых панелях; компоновки можно сохранять.
+- **Интерактивная карта** — положение аппарата в реальном времени, след полёта, несколько подложек и загрузка карт для работы без интернета.
+- **Слои карты** — метеорадар, анимация ветра, воздушные зоны, авиационные карты OpenAIP, рельеф и воздушное движение по ADS-B / OGN.
+- **Приборы на карте** — более 30 свободно размещаемых приборов: ориентация, шкалы высоты и скорости, курс, батарея, GPS и RTK, ветер, дальномер и препятствия, состояние EKF, таймер полёта, ход миссии, сообщения и другие. Доступны аналоговые, цифровые и компактные варианты, перетаскивание и объединение в группы; положение сохраняется.
+- **Синтетическое зрение** — трёхмерный рельеф со спутниковыми изображениями выбранного поставщика карт.
+- **Видео и камера** — панель с подключаемыми источниками WebRTC, RTSP/FFmpeg и UVC, управление подвесом и пошаговая настройка wfb-ng / RunCam WiFiLink.
+- **Вывод видеопотока** — передача синтетического зрения или вида 3D-симулятора через RTSP, SRT либо WebRTC в OpenCV, VLC или браузер.
+- **Команды полёта на экране телеметрии** — арминг и дизарминг, взлёт, переключение режимов и команда полёта в указанную точку в режиме Guided.
+- **Изменения в полёте** — настройка скорости, высоты и радиуса барражирования из прибора с быстрым возвратом прежнего значения.
+- **Виртуальные стики** — управление экранными стиками или USB-джойстиком с проверкой перед передачей управления.
 
-### Survey Planning
-- **Patterns** - grid, crosshatch (optionally at two heights), circular, spiral, perimeter fill, and corridor surveys along a centerline with plane or copter turn strategies
-- **GSD-first planning** - plan by ground sample distance with camera presets and live photo, battery, and data estimates
-- **Terrain follow** - continuous DEM-based terrain following so cameras hold height above ground without an onboard terrain database
-- **Multi-polygon areas** - multiple survey polygons with no-fly holes, plus a dedicated area editor window for boundary work
-- **Battery sortie split** - split long surveys into battery-sized flights, each independently uploadable
-- **GIS import** - KML, KMZ, GeoJSON, and Shapefile boundaries
-- **Survey projects** - save a survey as a project, reopen and adjust it later
+### Группа аппаратов — требуется закрытый orchestrator
 
-### Flight Log Analysis
-- **Log Explorer** - multi-chart plotting of ArduPilot DataFlash logs with independent y-axes, zoom/pan, windowed min/avg/max stats, and synchronized cursors across charts, map, and 3D flight path
-- **FFT spectrum** - frequency analysis for vibration and filter work
-- **Events and parameters** - flight events timeline and the parameter set recorded in the log
-- **Health reports** - automated pass/warn/fail checks for vibration, GPS, EKF, power, failsafes, and more
-- **AI-assisted analysis** - chat about a log with Claude, GPT, or Gemini; the Claude analyst can query raw telemetry and propose parameter changes you can apply
+**В установщике ArduDeck RU эти функции недоступны.** В исходном проекте предусмотрены:
 
-### OSD Tool
-- **Text OSD editor** - read, edit, and upload the flight controller OSD: ArduPilot OSDn parameters with multi-screen support, and MSP/Betaflight OSD layouts
-- **Composable custom HUD** - freely placeable telemetry readouts on a ground-rendered HUD (drawn by ArduDeck, never uploaded to the FC)
-- **RubyFPV layout authoring** - configure RubyFPV ground-side OSD screens and export them for the ground station
-- **Live video backdrop** - preview every OSD variant over your actual video feed, with MCM font support and bundled fonts
+- **Запуск движка одной кнопкой** — локальный движок координации запускается по нажатию, приложение подключается к нему автоматически.
+- **Добавление аппаратов** — по радиоканалу, интернету, сотовой сети через IP-модем 4G/5G или вторую наземную станцию.
+- **Групповые операции** — телеметрия и команды для каждого аппарата, общая полоса состояния, цветные метки на карте, управление построениями и действия над группой.
+- **Распределение аэросъёмки** — разделение участка между несколькими аппаратами.
+- **Получение журналов группы** — загрузка журналов со всех аппаратов через движок для совместного анализа.
+- **Выбор текущего аппарата** — калибровка, проверка двигателей, работа с файлами, загрузка журналов и перезагрузка выбранного участника группы.
 
-### Vehicle Setup & Tuning
-- **Parameter management** - full parameter list with metadata, search, range/enum/increment validation, modified tracking, and .param file import/export
-- **PID tuning** - ArduPilot and Betaflight/iNav tuning with presets, rate curve editors, and a VTOL / fixed-wing controller switch on QuadPlanes
-- **Flight modes, safety, and failsafe** - mode channel assignment, failsafe actions, geofence behavior, and MAVLink signing
-- **Calibration** - accelerometer, compass (including CompassMot motor-interference calibration and large-vehicle mag cal), with step-by-step wizards
-- **Hardware quick setup** - add a rangefinder, airspeed sensor, GPS, optical flow, ESC telemetry and more by picking the product; ArduDeck sets the parameters, tells you what to wire, and shows a live check that it works
-- **Outputs and switches** - assign what each output does and which radio channel or switch drives it, without hunting for the right parameter
-- **Motor test, servo wizard, quick setup** - guided flows for frames, fixed wings, and first-time configuration
-- **CLI terminal** - xterm-based terminal with autocomplete and history, including full GUI configuration for legacy F3-era boards driven over CLI
+### Поправки RTK GPS через NTRIP
 
-### Firmware & Connectivity
-- **Firmware flashing** - ArduPilot, Betaflight, and iNav, with board auto-detection (MAVLink, MSP, STM32 bootloader), USB VID/PID recognition, and a boot-pad wizard
-- **Connections** - serial (USB), TCP, and UDP, with port scanning and MAVLink v1/v2 auto-detection
-- **Link Doctor** - connection diagnostics that identify what is actually on the link and why it is not talking
-- **MAVLink inspector** - live message browser with field graphs
-- **Robust telemetry links** - parameter download recovery tuned for slow SiK-style radio links
-- **CRSF telemetry** - receive telemetry over an ExpressLRS backpack
-- **MAVFTP** - browse and transfer files on the flight controller
+- **Встроенный клиент NTRIP** — подключение к серверу поправок, просмотр таблицы источников и передача RTCM на аппарат.
+- **NTRIP v1 и v2** — поддержка v2 с HTTP/1.1 и chunked-передачей, автоматический переход к серверам v1.
+- **Передача положения GGA** серверу для сетевых точек подключения VRS.
+- **Прямое подключение** — передача поправок одному аппарату. В исходном проекте также предусмотрена раздача всей группе через orchestrator; этот вариант в сборку форка не входит.
 
-### Simulation
-- **SITL built in** - download and run real ArduPilot firmware (Copter, Plane, Rover, Sub) on your computer, pick a frame and release track, and ArduDeck connects automatically
-- **Virtual RC and FlightGear bridge** - fly the simulated vehicle from the app, optionally visualized in FlightGear
-- **Swarm SITL** - spawn multiple SITL vehicles to exercise multi-vehicle features without hardware
-- **3D Sim World** - watch the vehicle in a 3D world (chase, FPV, orbit or top view), add obstacles and inject failures such as a dead barometer or a slung load
+### Планирование миссий
 
-### Scripting & Companion Hardware
-- **Lua Graph Editor** - build ArduPilot Lua scripts by connecting nodes (sensors, logic, math, actions), with live code preview, templates, and one-click export ([docs](apps/desktop/src/renderer/components/lua-graph/docs/))
-- **Companion boards** - ESP32 flashing with pre-configured templates (DroneBridge, MAVLink bridge), DroneBridge auto-discovery, and an agent dashboard for Raspberry Pi-class companions (metrics, terminal, services)
+- **Интерактивное редактирование** — добавление точек нажатием, перенос мышью, отмена и повтор действий, постоянное автосохранение с восстановлением после сбоя.
+- **Группы миссии** — именованные цветные группы ручных точек и участков съёмки со своей статистикой, отображением, загрузкой и сохранением.
+- **Высотный профиль с учётом системы отсчёта** — относительная высота, высота над уровнем моря AMSL и над рельефом задаются для каждой точки в соответствующих системах MAVLink; высоты можно менять перетаскиванием.
+- **Проверка пересечения с рельефом** — предупреждения на участках, где маршрут пересекает поверхность, и автоматическая корректировка высот.
+- **Курс в точках и вставка точек** — задание курса и добавление новых точек между существующими.
+- **Сплайновые точки, 3D-просмотр и библиотека миссий** — плавные траектории, трёхмерное представление, локальная библиотека, импорт и экспорт `.waypoints` (QGC WPL) и `.plan`.
+- **Протокол миссий MAVLink** — отправка и чтение миссий, геозон и точек сбора; на карте телеметрии отображается содержимое, полученное с аппарата.
 
-### Cargo (Extensions)
-- **The Hangar** - install extensions, called cargo, that add hardware support, instruments, map layers and whole new screens
-- **Module SDK** - build your own cargo; it loads from a folder and reloads itself while you develop
+### Планирование аэросъёмки
 
-### Quality of Life
-- **Languages** - English and German, with more welcome (see [Translating](#languages--translating))
-- **Unit preferences** - metric or imperial per quantity (distance, altitude, speed, wind, weight, area, capacity)
-- **Feature tours** - short guided walkthroughs of new and existing screens
-- **Vehicle profiles** - per-vehicle configurations with type-specific properties and live weather at the launch site
-- **Built-in bug reporting** - one screen collects sanitized logs into an encrypted report you choose to share
+- **Схемы полёта** — сетка, перекрёстная сетка с возможностью разных высот, круг, спираль, заполнение по периметру и съёмка коридора вдоль осевой линии; способы разворота учитывают самолёт или коптер.
+- **Планирование по GSD** — расчёт по размеру пикселя на местности, готовые профили камер, оценка числа снимков, расхода батареи и объёма данных.
+- **Следование рельефу** — непрерывный расчёт высоты по цифровой модели DEM для удержания камеры над поверхностью без бортовой базы рельефа.
+- **Несколько полигонов** — участки с исключёнными зонами и отдельное окно редактирования границ.
+- **Разделение по батареям** — разбивка длительной съёмки на отдельные вылеты с независимой загрузкой каждого.
+- **Импорт ГИС** — границы из KML, KMZ, GeoJSON и Shapefile.
+- **Проекты съёмки** — сохранение проекта с возможностью вернуться к нему и изменить параметры.
 
----
+### Анализ журналов полёта
 
-## Download & Install
+- **Обозреватель журналов** — графики ArduPilot DataFlash с независимыми осями Y, масштабированием и перемещением, минимумом, средним и максимумом на выбранном интервале; курсоры синхронизированы между графиками, картой и 3D-траекторией.
+- **Спектр FFT** — частотный анализ вибраций и работы фильтров.
+- **События и параметры** — временная шкала событий и набор параметров, записанный в журнал.
+- **Отчёты о состоянии** — автоматические проверки вибраций, GPS, EKF, питания, аварийной защиты и других показателей с результатами «норма», «предупреждение» и «ошибка».
+- **Анализ с ИИ** — обсуждение журнала с Claude, GPT или Gemini. Аналитик Claude может запрашивать исходную телеметрию и предлагать изменения параметров для применения пользователем.
 
-Most users should download a pre-built release. No need to clone or build anything.
+### Редактор OSD
 
-| Platform | Format |
-|----------|--------|
-| **Windows** | Installer (.exe) and portable (.exe) |
-| **macOS** | DMG (Apple Silicon) |
-| **Linux** | AppImage and .deb |
+- **Текстовый OSD контроллера** — чтение, редактирование и отправка параметров ArduPilot OSDn с несколькими экранами, а также компоновок MSP/Betaflight.
+- **Настраиваемые приборы поверх видео** — свободное размещение телеметрии на наземном HUD, который рисует ArduDeck и который не загружается в полётный контроллер.
+- **Компоновки RubyFPV** — подготовка наземных экранов OSD и их экспорт для наземной станции.
+- **Видеофон в реальном времени** — просмотр каждого варианта поверх своего видеопотока, поддержка MCM и входящих в поставку шрифтов.
 
-All downloads: [Latest Release](https://github.com/rubenCodeforges/ardudeck/releases/latest)
+### Настройка аппарата
 
-Install, plug in your flight controller via USB (or point ArduDeck at your telemetry link), and you are ready to go.
+- **Управление параметрами** — полный список с описаниями, поиск, проверка диапазонов, перечислений и шага, отслеживание изменений, импорт и экспорт `.param`.
+- **Настройка PID** — регулировки ArduPilot и Betaflight/iNav, готовые наборы, редакторы кривых угловой скорости, переключение между регуляторами VTOL и самолётного режима у QuadPlane.
+- **Режимы полёта и аварийная защита** — назначение канала режимов, действия при отказах, поведение геозон и подпись MAVLink.
+- **Калибровки** — пошаговые мастера акселерометра и компаса, включая оценку помех от двигателей CompassMot и калибровку магнитометра крупного аппарата.
+- **Быстрая настройка оборудования** — выбор модели дальномера, датчика воздушной скорости, GPS, оптического потока, телеметрии ESC и другого оборудования; приложение задаёт параметры, показывает подключение и проверяет поступающие данные.
+- **Выходы и переключатели** — назначение функций выходам и каналам либо переключателям пульта без ручного поиска каждого параметра.
+- **Проверка двигателей, мастер сервоприводов и первоначальная настройка** — пошаговые процедуры для рам, самолётов и первого запуска.
+- **Терминал CLI** — терминал на xterm с автодополнением и историей, включая графическую настройку старых плат поколения F3 через команды CLI.
 
-> **Linux AppImage note:** on Ubuntu 24.04+ and other recent distros the AppImage needs `libfuse2` (`sudo apt install libfuse2`), or run it with `APPIMAGE_EXTRACT_AND_RUN=1`. The `.deb` package has no such dependency.
->
-> **Code signing:** ArduDeck binaries are currently unsigned. On macOS, right-click the app and select "Open" (or run `xattr -cr /Applications/ArduDeck.app`). On Windows SmartScreen, click "More info", then "Run anyway".
->
-> **Auto-updates:** Windows and Linux update in-app with one click. On macOS, ArduDeck notifies you about new versions and opens the release page for manual download until the app is code-signed.
+### Прошивки и подключение
 
----
+- **Запись прошивок** — ArduPilot, Betaflight и iNav, определение платы по MAVLink, MSP или загрузчику STM32, распознавание USB VID/PID и мастер входа в загрузчик через контакт BOOT.
+- **Соединения** — последовательный порт и USB, TCP и UDP, поиск портов и определение MAVLink v1/v2.
+- **Диагностика связи Link Doctor** — определение содержимого канала и возможных причин отсутствия обмена.
+- **Инспектор MAVLink** — просмотр сообщений и графики значений их полей в реальном времени.
+- **Работа на медленных радиоканалах** — восстановление загрузки параметров, рассчитанное на каналы типа SiK.
+- **Телеметрия CRSF** — приём через ExpressLRS backpack.
+- **MAVFTP** — просмотр и передача файлов полётного контроллера.
 
-## Supported Vehicles & Firmware
+### Симуляция
 
-### ArduPilot (MAVLink)
-- **Copter** - quadcopters, hexacopters, octocopters
-- **Plane** - fixed-wing aircraft, flying wings
-- **VTOL** - tiltrotors, tailsitters, QuadPlanes
-- **Rover** - ground vehicles, boats
-- **Submarine** - underwater ROVs (ArduSub)
+- **Встроенный SITL** — загрузка и запуск настоящей прошивки ArduPilot Copter, Plane, Rover или Sub на компьютере, выбор модели и канала выпусков, автоматическое подключение.
+- **Виртуальный пульт и связь с FlightGear** — управление моделью из приложения и дополнительная визуализация в FlightGear.
+- **Групповой SITL** — одновременный запуск нескольких аппаратов для проверки групповых функций. **Требует orchestrator и недоступен в сборке ArduDeck RU.**
+- **Трёхмерный мир симулятора** — камеры сопровождения, FPV, кругового обзора и сверху; препятствия, моделирование отказов, например отказа барометра, и подвесного груза.
 
-### Betaflight & iNav (MSP)
-- **Multirotors and fixed wings** on F4/F7/H7 boards via modern MSP
-- **Legacy F3-era boards** (SPRacing F3, Naze32, Flip32, and friends) get the same graphical interface, driven over CLI under the hood: PID, rates, mixer, servo, and modes tabs all work, with firmware flashing for iNav 2.0.0 / Betaflight 3.5.7 era builds
+### Скрипты и бортовые компьютеры
+
+- **Визуальный редактор Lua** — создание скриптов ArduPilot из узлов датчиков, логики, математики и действий с просмотром кода, шаблонами и экспортом. [Исходная документация редактора](apps/desktop/src/renderer/components/lua-graph/docs/); переведённая справка доступна внутри приложения, её известные неточности перечислены в [отчёте о локализации](TRANSLATION-RU.md).
+- **Дополнительные платы** — запись ESP32 с готовыми шаблонами DroneBridge и MAVLink-моста, обнаружение DroneBridge и панель агента для бортовых компьютеров класса Raspberry Pi: показатели системы, терминал и службы.
+
+### Cargo — расширения
+
+- **Hangar** — каталог расширений Cargo для оборудования, приборов, картографических слоёв и новых экранов.
+- **Module SDK** — инструменты создания собственных Cargo с загрузкой из папки и автоматическим обновлением во время разработки.
+
+Доступность стороннего расширения определяется его автором, условиями распространения и совместимостью. Форк не предоставляет права на закрытые модули.
+
+### Удобство работы
+
+- **Языки** — русский, английский, немецкий и традиционный китайский. [Руководство по переводу](#languages--translating).
+- **Единицы измерения** — метрические или британские единицы отдельно для расстояния, высоты, скорости, ветра, массы, площади и ёмкости.
+- **Обучающие обзоры** — короткие пошаговые пояснения к новым и существующим экранам.
+- **Профили аппаратов** — индивидуальные настройки и свойства с учётом типа аппарата, текущая погода в точке старта.
+- **Сбор отчёта об ошибке** — подготовка зашифрованного отчёта из журналов с фильтрацией части чувствительных данных; решение об отправке принимает пользователь.
 
 ---
 
-## Building from Source
+<a id="download--install"></a>
 
-Only needed if you want to modify ArduDeck or contribute. Everyone else should [download a release](#download--install).
+## Скачивание и установка
 
-### Prerequisites
+Готовые русские сборки публикуются **[в релизах этого форка](https://github.com/xaker-enginer/ardudeck/releases)**. Для обычной установки не нужно клонировать репозиторий или устанавливать инструменты разработки.
 
-- **Node.js** 20 or higher
-- **pnpm** 9 or higher
+| Сборка | Формат и назначение |
+|---|---|
+| **ArduDeck RU для Windows x64** | Пошаговый установщик `.exe` с выбором папки установки |
+| **macOS и Linux** | Готовые русские пакеты в этом форке пока не выпускаются; доступны исходники |
 
-### Setup
+### Windows
+
+1. Откройте [релизы форка](https://github.com/xaker-enginer/ardudeck/releases) и прочитайте примечания к выбранному выпуску.
+2. Скачайте файл с окончанием **`-win-x64-setup.exe`**. Архивы `Source code` содержат исходники, а не установщик.
+3. Запустите установщик, выберите папку и завершите установку.
+4. Откройте **ArduDeck RU**. В русской сборке при первом запуске выбран русский язык; изменить его можно в **Настройки → Язык**.
+5. Для подключения используйте USB либо свой канал телеметрии и выберите соответствующий порт или сетевые параметры.
+
+Установщик форка **не подписан сертификатом издателя**. Windows может показать предупреждение SmartScreen. Сверьте адрес репозитория и контрольную сумму из релиза; если вы решили запускать именно этот файл, дополнительные действия доступны через «Подробнее». Само наличие предупреждения или его отсутствие не является проверкой безопасности программы.
+
+Состав выпуска и выполненные проверки перечислены в примечаниях к релизу. Испытания на реальном самолёте и контроллере не заявляются. Настройки ArduDeck RU хранятся отдельно от официальной программы, в `%APPDATA%\ArduDeck RU`, а обновления поступают из релизов этого форка. Подробности — в [руководстве Windows](docs/BUILD-WINDOWS-RU.md).
+
+### Другие платформы исходного проекта
+
+В [релизах исходного ArduDeck](https://github.com/rubenCodeforges/ardudeck/releases) есть собственные установщики Windows, переносимые сборки, DMG для macOS Apple Silicon, AppImage и пакеты Linux. Они **не включают автоматически перевод и изменения этого форка**.
+
+Для AppImage на Ubuntu 24.04 и более новых системах может требоваться `libfuse2` (`sudo apt install libfuse2`); другой вариант запуска — `APPIMAGE_EXTRACT_AND_RUN=1`. У `.deb` этой зависимости нет. Правила подписи, установки и обновления macOS/Linux сверяйте с примечаниями именно к скачанному выпуску: они могут отличаться от Windows-сборки ArduDeck RU.
+
+В исходном проекте предусмотрено обновление Windows и Linux из приложения, а на macOS без подписи открывается страница релиза для ручной установки. Для русского форка источником Windows-обновлений служат его собственные релизы.
+
+---
+
+<a id="supported-vehicles--firmware"></a>
+
+## Поддерживаемые аппараты и прошивки
+
+### ArduPilot — MAVLink
+
+- **Copter** — квадрокоптеры, гексакоптеры и октокоптеры.
+- **Plane** — самолёты и летающие крылья.
+- **VTOL** — тилтроторы, тейлситтеры и QuadPlane.
+- **Rover** — наземная техника и лодки.
+- **ArduSub** — подводные дистанционно управляемые аппараты.
+
+### Betaflight и iNav — MSP
+
+- **Мультироторы и самолёты** на платах F4/F7/H7 через современный MSP.
+- **Старые платы поколения F3**, например SPRacing F3, Naze32 и Flip32: графические настройки PID, угловых скоростей, микшера, сервоприводов и режимов через CLI; предусмотрена запись прошивок поколения iNav 2.0.0 / Betaflight 3.5.7.
+
+Это перечень поддержки исходного проекта, а не список оборудования, испытанного с русским установщиком.
+
+---
+
+<a id="building-from-source"></a>
+
+## Сборка из исходников
+
+Этот раздел нужен для разработки или собственной сборки. Для обычного использования откройте [страницу релизов](https://github.com/xaker-enginer/ardudeck/releases).
+
+### Требования
+
+- **Node.js** 20.19.0 или новее.
+- **pnpm 9.15.1**, указанная в `packageManager` репозитория.
+- Для установщика Windows с открытыми вспомогательными компонентами — Rust и подходящий компоновщик; точный порядок описан в [руководстве сборки Windows](docs/BUILD-WINDOWS-RU.md).
+
+### Подготовка и запуск
 
 ```bash
-# Fork the repo on GitHub first, then clone your fork
-git clone https://github.com/<your-username>/ardudeck.git
+# Клонировать русский форк
+git clone https://github.com/xaker-enginer/ardudeck.git
 cd ardudeck
 
-# Install dependencies
-pnpm install
+# Установить зафиксированные зависимости
+pnpm install --frozen-lockfile
 
-# Build all packages
+# Собрать все пакеты
 pnpm build
 
-# Run in development mode
+# Запустить приложение в режиме разработки
 pnpm dev
 ```
 
-### Package for Production
+Если вы собираетесь отправлять изменения, создайте собственный форк и используйте его адрес при клонировании.
 
-```bash
-pnpm package
-```
+### Подготовка установщика
 
-The repository is a pnpm workspace: the Electron app lives in `apps/desktop`, with protocol and parser libraries in `packages/` (MAVLink, MSP, DataFlash log parsing, STM32 flashing, and more).
+Следуйте [инструкции сборки Windows ArduDeck RU](docs/BUILD-WINDOWS-RU.md). Она описывает открытые вспомогательные программы, упаковку, лицензии и проверку результата.
 
----
+Исходная команда `pnpm package` вызывает загрузку закрытого orchestrator из релиза автора и не подходит для независимой сборки этого форка без соответствующего доступа. Не подменяйте отсутствующий движок случайным исполняемым файлом.
 
-## Bug Reporting
-
-ArduDeck includes a built-in bug reporting tool (bug icon in the sidebar). It collects recent app logs (paths sanitized), system info, and optionally a board configuration dump, shows you exactly what will be included, and produces an encrypted `.deckreport` file that only the ArduDeck team can read. Attach it to a [GitHub issue](https://github.com/rubenCodeforges/ardudeck/issues) or share it on [Discord](https://discord.gg/JX2JdVXPPC). Nothing is uploaded automatically; you decide when and how to share.
+Репозиторий организован как рабочая область pnpm: приложение Electron находится в `apps/desktop`, библиотеки протоколов и парсеров — в `packages/` (MAVLink, MSP, журналы DataFlash, запись STM32 и другие), открытые компоненты Rust — в `crates/`.
 
 ---
 
-## Languages & Translating
+<a id="bug-reporting"></a>
 
-This fork includes **Russian**, **English**, **German**, and **Traditional Chinese** (Settings > Language). See [Russian localization](TRANSLATION-RU.md) for the scope of the Russian translation. Translations are plain JSON files; see the [translation guide](TRANSLATING.md).
+## Сообщения об ошибках
 
----
+Ошибки перевода, установщика и поведения русского форка сообщайте в [Issues этого репозитория](https://github.com/xaker-enginer/ardudeck/issues). Укажите версию, последовательность действий, ожидаемый и фактический результат; при работе с оборудованием добавьте модель платы и версию прошивки. При необходимости приложите снимок экрана без личных данных.
 
-## Contributing
+В ArduDeck есть встроенный сбор отчёта — значок ошибки на боковой панели. Он собирает последние журналы приложения с очисткой путей, сведения о системе и, по выбору, конфигурацию платы. Перед созданием файла можно просмотреть состав. Полученный `.deckreport` зашифрован для команды **исходного ArduDeck**; поддерживающий этот форк не получает автоматически ключ для его чтения.
 
-The contribution and CLA instructions below apply to submissions to the **original ArduDeck project**. Publishing this translation in a separate fork does not record acceptance of the CLA.
-
-Contributions are welcome, including translations (see [TRANSLATING.md](TRANSLATING.md)). **Every contribution requires accepting the [Contributor License Agreement](CLA.md)**: pull requests without the agreement line in their description are closed automatically. [CONTRIBUTING.md](CONTRIBUTING.md) has the line and the workflow. Please read [CONTRIBUTING.md](CONTRIBUTING.md) first (it covers the CLA and workflow), then:
-
-1. Fork the repository and clone your fork
-2. Create a feature branch from `master`
-3. Make your changes and add tests where it makes sense
-4. Open a Pull Request
+Такой отчёт предназначен для [разработчиков исходного проекта](https://github.com/rubenCodeforges/ardudeck/issues) или передачи им через [Discord](https://discord.gg/JX2JdVXPPC). Файл не отправляется автоматически: адресата и способ передачи выбираете вы. Фильтрация данных не гарантирует удаления любых секретов из дополнительных материалов.
 
 ---
 
-## Sponsors
+<a id="languages--translating"></a>
 
-ArduDeck is supported by companies that contribute hardware, time, or resources to the project.
+## Языки и перевод
 
-- [Adlerblix](https://adlerblix.de) - optical aerial surveying: photogrammetry, RTK precision, large-area mapping (Germany)
-- [UAV-DEV](https://www.uav-dev.com) - autonomous systems hardware: autopilots, DroneCAN sensors, radio and wiring from a single source (Germany)
+В форке доступны **русский, английский, немецкий и традиционный китайский**: **Настройки → Язык**. Для русской локализации подготовлены 56 файлов и 14 305 значений, включая формы числительных.
 
----
-
-## License
-
-This project is licensed under **GPL-3.0** (see [LICENSE](LICENSE)), with an additional permission for marketplace modules under Section 7 (see [MODULE-EXCEPTION.md](MODULE-EXCEPTION.md)).
+Границы перевода и результаты проверки описаны в [TRANSLATION-RU.md](TRANSLATION-RU.md). Тексты хранятся в обычных JSON-файлах; порядок работы — в [руководстве переводчика](TRANSLATING.md), согласованные термины — в [русском глоссарии](tools/i18n/glossary-ru.md).
 
 ---
 
-## Acknowledgments
+<a id="contributing"></a>
 
-- [ArduPilot](https://ardupilot.org/) - open-source autopilot firmware
-- [Betaflight](https://betaflight.com/) - flight controller firmware for multirotors
-- [iNav](https://github.com/iNavFlight/inav) - navigation-focused flight controller firmware
-- [Mission Planner](https://github.com/ArduPilot/MissionPlanner) and [QGroundControl](http://qgroundcontrol.com/) - the ground control stations that paved the way
-- [MAVLink](https://mavlink.io/) - Micro Air Vehicle communication protocol
-- [Leaflet](https://leafletjs.com/) - interactive maps library
+## Участие в разработке
+
+Исправления русского форка можно подготовить в отдельной ветке и предложить через Pull Request. Перед началом прочитайте [CONTRIBUTING.md](CONTRIBUTING.md), а для перевода — [TRANSLATING.md](TRANSLATING.md).
+
+1. Создайте свой форк и клонируйте его.
+2. Создайте рабочую ветку от `master`.
+3. Внесите изменения и выполните подходящие проверки.
+4. Откройте Pull Request с понятным описанием результата и адресатом изменений.
+
+**Отправка изменений в исходный ArduDeck регулируется его правилами CLA.** Автор исходного проекта требует принятия [Contributor License Agreement](CLA.md), в том числе для переводов; точная строка согласия и порядок приведены в [CONTRIBUTING.md](CONTRIBUTING.md). Публикация этого форка сама по себе не означает принятия CLA или отправки изменений автору ArduDeck.
+
+---
+
+<a id="sponsors"></a>
+
+## Поддержка исходного проекта
+
+Исходный ArduDeck поддерживают организации, предоставляющие оборудование, время и другие ресурсы:
+
+- [Adlerblix](https://adlerblix.de) — оптическая аэросъёмка, фотограмметрия, точность RTK и картографирование больших территорий, Германия.
+- [UAV-DEV](https://www.uav-dev.com) — оборудование автономных систем: автопилоты, датчики DroneCAN, радиосвязь и кабельные соединения, Германия.
+
+Эти сведения сохранены в знак признания вклада в исходный проект и не означают поддержку или одобрение русского форка этими организациями.
+
+---
+
+<a id="license"></a>
+
+## Лицензия
+
+ArduDeck и изменения этого форка распространяются под **GPL-3.0**: см. [LICENSE](LICENSE). Для модулей каталога предусмотрено дополнительное разрешение по разделу 7 GPL: [MODULE-EXCEPTION.md](MODULE-EXCEPTION.md). Оно не превращает закрытые сторонние компоненты в свободно распространяемые и не заменяет GPL для самого форка.
+
+Исходные тексты лицензии, исключения для модулей и [CLA](CLA.md) сохранены без изменений. Русское описание служит пояснением; условия определяются оригиналами этих документов. Сведения об авторстве исходного проекта сохранены. ArduDeck RU является неофициальной сборкой и не заявляет об одобрении со стороны Ruben M или команды ArduDeck.
+
+---
+
+<a id="acknowledgments"></a>
+
+## Благодарности
+
+- [ArduPilot](https://ardupilot.org/) — открытая прошивка автопилота.
+- [Betaflight](https://betaflight.com/) — прошивка полётных контроллеров мультироторов.
+- [iNav](https://github.com/iNavFlight/inav) — прошивка полётных контроллеров с упором на навигацию.
+- [Mission Planner](https://github.com/ArduPilot/MissionPlanner) и [QGroundControl](http://qgroundcontrol.com/) — наземные станции, заложившие основу многих подходов.
+- [MAVLink](https://mavlink.io/) — протокол обмена для беспилотных аппаратов.
+- [Leaflet](https://leafletjs.com/) — библиотека интерактивных карт.
 
 ---
 
 <p align="center">
-  Made by <a href="https://github.com/rubenCodeforges">Codeforges</a>
+  Исходный ArduDeck создан <a href="https://github.com/rubenCodeforges">Codeforges / Ruben M</a>.<br/>
+  Русский форк поддерживает <a href="https://github.com/xaker-enginer">xaker-enginer</a>.
 </p>

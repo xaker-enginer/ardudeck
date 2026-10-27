@@ -1,61 +1,85 @@
-# Contributing to ArduDeck
+# Участие в разработке ArduDeck
 
-Thanks for your interest in contributing to ArduDeck! This guide covers what you need to know before submitting a contribution.
+Это русская редакция инструкции исходного проекта с пояснениями для форка **ArduDeck RU**. Дата изменения: 27.10.2026.
+
+Для исправления русского перевода, документации или установщика используйте [репозиторий xaker-enginer/ardudeck](https://github.com/xaker-enginer/ardudeck). Перед отправкой Pull Request проверьте, в какой репозиторий он направлен: русский форк и [исходный ArduDeck](https://github.com/rubenCodeforges/ardudeck) сопровождаются отдельно.
 
 ---
 
-## Contributor License Agreement (CLA)
+## Соглашение участника CLA в исходном проекте
 
-All contributions to ArduDeck require agreement to our [Contributor License Agreement](CLA.md).
+Автор **исходного ArduDeck** требует согласия с [Contributor License Agreement](CLA.md) для всех поступающих ему изменений, включая переводы. Этот раздел описывает его порядок работы. Публикация русской локализации в отдельном форке не является принятием CLA и не означает, что изменения уже отправлены автору.
 
-### Why?
+### Для чего исходному проекту нужно соглашение
 
-ArduDeck is licensed under GPL v3 with a [Marketplace Module Exception](MODULE-EXCEPTION.md) that allows third-party modules sold through the official ArduDeck Hangar to use proprietary licenses. To maintain this dual-licensing structure, we need sufficient rights over all contributed code. The CLA grants the project maintainer (Ruben M) the ability to manage licensing while keeping ArduDeck open source.
+ArduDeck распространяется по GPL v3 с [исключением для модулей каталога](MODULE-EXCEPTION.md), позволяющим сторонним модулям официального Hangar использовать собственные, в том числе закрытые, лицензии при соблюдении условий исключения. По объяснению автора, CLA предоставляет сопровождающему проекта Ruben M права, необходимые для управления лицензированием принимаемых изменений при сохранении открытого исходного кода ArduDeck.
 
-### How to agree
+Это пояснение не заменяет текст самого соглашения. Прочитайте [CLA.md](CLA.md) перед принятием решения.
 
-Include this line in your first pull request description:
+### Как выразить согласие при отправке в исходный проект
 
-```
+Если вы прочитали соглашение и решили его принять, добавьте в описание своего первого Pull Request в исходный ArduDeck **точную строку**:
+
+```text
 I have read and agree to the ArduDeck Contributor License Agreement (CLA.md).
 ```
 
-This is not optional. Pull requests whose description does not contain this line are **closed automatically** with a message explaining why. Edit the description to add the line and the pull request reopens by itself. Once you have agreed in one pull request, your later pull requests are covered.
+Строка приведена как образец, а не как согласие автора этого форка или читателя документа. Не добавляйте её от имени другого человека.
+
+В исходном проекте запросы без этой строки автоматически закрываются с пояснением причины. После добавления строки в описание запрос открывается снова. По его правилам, принятие соглашения в первом запросе распространяется и на последующие запросы того же участника.
 
 ---
 
-## Getting Started
+## Начало работы
 
-1. Fork the repository
-2. Create a feature branch from `master`
-3. Make your changes
-4. Ensure your code passes checks:
+1. Создайте свой форк нужного репозитория и клонируйте его. Подготовка среды описана в [README](README.md#building-from-source).
+2. Создайте рабочую ветку от `master`.
+3. Внесите изменения; не добавляйте в репозиторий ключи, пользовательские конфигурации и материалы с личными данными.
+4. Запустите проверки, подходящие для изменённых компонентов. Для приложения из корня репозитория:
+
    ```bash
-   npx tsc --noEmit
-   npx eslint .
+   pnpm --filter @ardudeck/desktop typecheck
+   pnpm --filter @ardudeck/desktop lint
    ```
-5. Submit a pull request against `master`
+
+   Для русского перевода дополнительно:
+
+   ```bash
+   node tools/i18n/verify-locale.mjs ru
+   node tools/i18n/verify-ru.mjs
+   ```
+
+5. Откройте Pull Request в `master` выбранного репозитория. Объясните, какую проблему решает изменение, что проверено и какие ограничения остались. Для изменений интерфейса приложите снимки экранов.
+
+Известные ограничения исходной проверки типов и результаты локализации зафиксированы в [TRANSLATION-RU.md](TRANSLATION-RU.md). Не выдавайте общий запуск с ошибками за успешную проверку; отделяйте прежние проблемы от новых.
 
 ---
 
-## Code Guidelines
+## Правила кода
 
-- **TypeScript strict mode**: handle `undefined` from indexed access (`noUncheckedIndexedAccess` is enabled)
-- **No emojis in UI**: use [Lucide React](https://lucide.dev/) icons instead
-- **Use existing components**: especially `DraggableSlider` for all slider UIs
-- **Check reference implementations** before implementing MSP/MAVLink features (see `CLAUDE.md` for details)
-
----
-
-## Reporting Issues
-
-Open an issue on the repository. Include:
-- Steps to reproduce
-- Expected vs actual behavior
-- Hardware/firmware details (if applicable)
+- **Строгий TypeScript.** Учитывайте возможный `undefined` при доступе по индексу: включён `noUncheckedIndexedAccess`.
+- **Без эмодзи в интерфейсе.** Используйте значки [Lucide React](https://lucide.dev/).
+- **Повторное использование компонентов.** В частности, используйте `DraggableSlider` для ползунков.
+- **Проверка эталонных реализаций.** Перед реализацией MSP/MAVLink сверяйтесь с существующими решениями; подробности — в [CLAUDE.md](CLAUDE.md).
+- **Сетевые зависимости.** Следуйте действующим правилам [AGENTS.md](AGENTS.md): Axios не устанавливать, использовать штатный `fetch` либо `undici`.
+- **Локализация.** Новые пользовательские строки оформляйте через существующий механизм перевода; соблюдайте [руководство переводчика](TRANSLATING.md) и [русский глоссарий](tools/i18n/glossary-ru.md).
 
 ---
 
-## Questions?
+## Сообщения об ошибках
 
-Open an issue or reach out to the project maintainer.
+Для ошибок этого форка откройте [Issue в xaker-enginer/ardudeck](https://github.com/xaker-enginer/ardudeck/issues). Укажите:
+
+- версию приложения и операционную систему;
+- последовательность действий для воспроизведения;
+- ожидаемое и фактическое поведение;
+- сведения о плате, аппаратуре и прошивке, если они относятся к проблеме;
+- снимок экрана или небольшой обезличенный фрагмент журнала, если он помогает.
+
+Общие ошибки исходного проекта можно сообщать в [его Issues](https://github.com/rubenCodeforges/ardudeck/issues), явно указав, какая сборка использовалась. Встроенный `.deckreport` зашифрован для команды исходного ArduDeck; сопровождающий русского форка не получает автоматически ключ для его чтения.
+
+---
+
+## Вопросы
+
+Откройте обсуждение через Issue соответствующего репозитория. Сообщество исходного ArduDeck также доступно на [форуме](https://forum.ardudeck.com) и в [Discord](https://discord.gg/JX2JdVXPPC).

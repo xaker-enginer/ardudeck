@@ -1,0 +1,120 @@
+[
+  {
+    "id": "npm:@esbuild/win32-x64@0.21.5",
+    "file": "npm__esbuild_win32-x64_0.21.5.LICENSE",
+    "url": "https://raw.githubusercontent.com/evanw/esbuild/fc37c2fa9de2ad77476a6d4a8f1516196b90187e/LICENSE.md",
+    "metadata": "https://registry.npmjs.org/%40esbuild%2Fwin32-x64/0.21.5",
+    "sha256": "b40ec5baec7bb34fa5b1c09521fa3cd52d5fad7adafed74932a2010d3612a681"
+  },
+  {
+    "id": "npm:@mapbox/jsonlint-lines-primitives@2.0.2",
+    "file": "npm__mapbox_jsonlint-lines-primitives_2.0.2.LICENSE",
+    "url": "https://raw.githubusercontent.com/mapbox/jsonlint/524533a0ddeeff6f29dab38af1644e30ec74d3c5/LICENSE",
+    "metadata": "https://registry.npmjs.org/%40mapbox%2Fjsonlint-lines-primitives/2.0.2",
+    "sha256": "5dcae6b71018b5454d00228bd08ccbcd9801ee27b19959b88ebcb55602604e6d",
+    "basis": "Official MIT licence added to the Mapbox project on 2026-03-30 after the npm tarball; not a file originally included in that tarball"
+  },
+  {
+    "id": "npm:@rollup/rollup-win32-x64-gnu@4.54.0",
+    "file": "npm__rollup_rollup-win32-x64-gnu_4.54.0.LICENSE",
+    "url": "https://raw.githubusercontent.com/rollup/rollup/88f1430c42fe76db421623106546e50627271952/LICENSE.md",
+    "metadata": "https://registry.npmjs.org/%40rollup%2Frollup-win32-x64-gnu/4.54.0",
+    "sha256": "fa1bd040c5bdeefe65b3821cebf474f2733ce65df13089bd151dda1778e62fe8"
+  },
+  {
+    "id": "npm:@rollup/rollup-win32-x64-msvc@4.54.0",
+    "file": "npm__rollup_rollup-win32-x64-msvc_4.54.0.LICENSE",
+    "url": "https://raw.githubusercontent.com/rollup/rollup/88f1430c42fe76db421623106546e50627271952/LICENSE.md",
+    "metadata": "https://registry.npmjs.org/%40rollup%2Frollup-win32-x64-msvc/4.54.0",
+    "sha256": "fa1bd040c5bdeefe65b3821cebf474f2733ce65df13089bd151dda1778e62fe8"
+  },
+  {
+    "id": "npm:app-builder-bin@4.0.0",
+    "file": "npm_app-builder-bin_4.0.0.LICENSE",
+    "url": "https://raw.githubusercontent.com/develar/app-builder/7004925f95d8f034fc88d7e782c9aa7583debb8e/LICENSE",
+    "metadata": "https://registry.npmjs.org/app-builder-bin/4.0.0",
+    "sha256": "bd662a6ff7b68e2d89e92ab5d02c0ff04eef249b8a02fc424cf970fb3feb525f",
+    "basis": "Supplemental current upstream notice; published version declares MIT"
+  },
+  {
+    "id": "npm:bluebird-lst@1.0.9",
+    "file": "npm_bluebird-lst_1.0.9.LICENSE",
+    "url": "https://raw.githubusercontent.com/develar/fs-extra-p/7aea9c6b6aa662fe66451a0d8ebd13add3c72236/LICENSE",
+    "metadata": "https://registry.npmjs.org/bluebird-lst/1.0.9",
+    "sha256": "6d5aad1f75f6d6091db29d695af4d36bedc32d1a0e7b8a9651fdc6fa4fe7d722",
+    "basis": "Supplemental current upstream notice; published version declares MIT"
+  },
+  {
+    "id": "npm:dmg-builder@26.7.0",
+    "file": "npm_dmg-builder_26.7.0.LICENSE",
+    "url": "https://raw.githubusercontent.com/electron-userland/electron-builder/ea65a0695a9f8f6a134cf34487952c33525f18bd/LICENSE",
+    "metadata": "https://registry.npmjs.org/dmg-builder/26.7.0",
+    "sha256": "bed8d0ab3e6031817f775a641ff37313b0f5591bc8ba0ed79b978dafbd4231ce",
+    "basis": "Supplemental current upstream notice; published version declares MIT"
+  },
+  {
+    "id": "npm:dockview-core@4.13.0",
+    "file": "npm_dockview-core_4.13.0.LICENSE",
+    "url": "https://raw.githubusercontent.com/mathuo/dockview/59dd3a3a767dfe5f924386bbe9f243f64d8ed591/LICENSE",
+    "metadata": "https://registry.npmjs.org/dockview-core/4.13.0",
+    "sha256": "1d56757fdc06c9b33c0f80821efe4f4b11960dd7fb6544232cff61752101f513"
+  },
+  {
+    "id": "npm:dockview-react@4.13.0",
+    "file": "npm_dockview-react_4.13.0.LICENSE",
+    "url": "https://raw.githubusercontent.com/mathuo/dockview/59dd3a3a767dfe5f924386bbe9f243f64d8ed591/LICENSE",
+    "metadata": "https://registry.npmjs.org/dockview-react/4.13.0",
+    "sha256": "1d56757fdc06c9b33c0f80821efe4f4b11960dd7fb6544232cff61752101f513"
+  },
+  {
+    "id": "npm:dockview@4.13.0",
+    "file": "npm_dockview_4.13.0.LICENSE",
+    "url": "https://raw.githubusercontent.com/mathuo/dockview/59dd3a3a767dfe5f924386bbe9f243f64d8ed591/LICENSE",
+    "metadata": "https://registry.npmjs.org/dockview/4.13.0",
+    "sha256": "1d56757fdc06c9b33c0f80821efe4f4b11960dd7fb6544232cff61752101f513"
+  },
+  {
+    "id": "npm:filelist@1.0.4",
+    "file": "npm_filelist_1.0.4.LICENSE",
+    "url": "https://raw.githubusercontent.com/mde/filelist/v1.0.4/LICENSE",
+    "metadata": "https://registry.npmjs.org/filelist/1.0.4",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+    "id": "npm:pmtiles@4.5.0",
+    "file": "npm_pmtiles_4.5.0.LICENSE",
+    "url": "https://raw.githubusercontent.com/protomaps/pmtiles/3b10e67edb65c6b04549f74c0279cef8328d859c/LICENSE",
+    "metadata": "https://registry.npmjs.org/pmtiles/4.5.0",
+    "sha256": "0371c38f338835f7fc13ed71176f3d92144e22c8b736a31cced57adbbeb647b3"
+  },
+  {
+    "id": "npm:saxes@6.0.0",
+    "file": "npm_saxes_6.0.0.LICENSE",
+    "url": "https://raw.githubusercontent.com/lddubeau/saxes/211fa0ebec9b628affc09219199639887174bfc3/LICENSE",
+    "metadata": "https://registry.npmjs.org/saxes/6.0.0",
+    "sha256": "0fac2374380621b22e6b50451057721a9c52935b02d16d106a9f04897f061d0e"
+  },
+  {
+    "id": "npm:tr46@0.0.3",
+    "file": "npm_tr46_0.0.3.LICENSE",
+    "url": "https://raw.githubusercontent.com/Sebmaster/tr46.js/6d09104f21991d496aa2a8535d21bdea91a9c216/LICENSE.md",
+    "metadata": "https://registry.npmjs.org/tr46/0.0.3",
+    "sha256": "499d6d466d064e0460427967a344e2a32fcb86ea8c6cd1a285ec4f1fa03fba67",
+    "basis": "Supplemental current upstream notice; published version declares MIT"
+  },
+  {
+    "id": "npm:undici-types@5.26.5",
+    "file": "npm_undici-types_5.26.5.LICENSE",
+    "url": "https://raw.githubusercontent.com/nodejs/undici/9197790ae0d015b40b75fd0c5cdb7420704b5272/LICENSE",
+    "metadata": "https://registry.npmjs.org/undici-types/5.26.5",
+    "sha256": "a6db8096b2707bc0102d256917d4d33f298ba36d8c3f25de067a2b5bb379db27"
+  },
+  {
+    "id": "npm:xz-decompress@0.2.3",
+    "file": "npm_xz-decompress_0.2.3-walloc.LICENSE",
+    "url": "https://raw.githubusercontent.com/wingo/walloc/a93409f5ebd49c875514c5fee30d3b151f7b0882/LICENSE.md",
+    "metadata": "https://registry.npmjs.org/xz-decompress/0.2.3",
+    "sha256": "35851131c3d897dfd984195d3d4237d5fb52f1f7e9bcde9a96352166db2da8ab",
+    "basis": "Supplemental current upstream notice; published version declares MIT (attributed in xz-decompress source header)"
+  }
+]

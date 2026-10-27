@@ -12,7 +12,7 @@ export interface LanguageState {
 
 const languageStore = new Store<{ preference: LanguagePreference }>({
   name: 'language',
-  defaults: { preference: 'system' },
+  defaults: { preference: 'ru' },
 });
 
 function state(): LanguageState {

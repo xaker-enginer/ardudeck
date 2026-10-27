@@ -18,7 +18,7 @@
  *        defaults to the host platform/arch.
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync, chmodSync, rmSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync, chmodSync, rmSync, renameSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
@@ -51,8 +51,9 @@ async function main() {
   const outDir = join(root, 'apps/desktop/resources/bin', platform);
   mkdirSync(outDir, { recursive: true });
   const out = join(outDir, platform === 'win32' ? 'mediamtx.exe' : 'mediamtx');
+  const licenseOut = join(outDir, 'MEDIAMTX-LICENSE');
 
-  if (existsSync(out)) {
+  if (existsSync(out) && existsSync(licenseOut)) {
     console.log(`mediamtx already present at ${out}`);
     return;
   }
@@ -67,10 +68,10 @@ async function main() {
   try {
     if (ext === 'zip') {
       // bsdtar ships with Windows runners and GitHub's macOS/Linux images.
-      const r = spawnSync('tar', ['xf', tmp, '-C', outDir, 'mediamtx.exe'], { stdio: 'inherit' });
+      const r = spawnSync('tar', ['xf', tmp, '-C', outDir, 'mediamtx.exe', 'LICENSE'], { stdio: 'inherit' });
       if (r.status !== 0) throw new Error('Failed to extract mediamtx.exe');
     } else {
-      const r = spawnSync('tar', ['xzf', tmp, '-C', outDir, 'mediamtx'], { stdio: 'inherit' });
+      const r = spawnSync('tar', ['xzf', tmp, '-C', outDir, 'mediamtx', 'LICENSE'], { stdio: 'inherit' });
       if (r.status !== 0) throw new Error('Failed to extract mediamtx');
     }
   } finally {
@@ -78,6 +79,8 @@ async function main() {
   }
 
   if (!existsSync(out)) throw new Error(`Extraction produced no binary at ${out}`);
+  if (!existsSync(join(outDir, 'LICENSE'))) throw new Error('MediaMTX archive has no LICENSE');
+  renameSync(join(outDir, 'LICENSE'), licenseOut);
   if (platform !== 'win32') chmodSync(out, 0o755);
   console.log(`mediamtx ${tag} -> ${out}`);
 }

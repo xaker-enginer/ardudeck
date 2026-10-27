@@ -1,34 +1,32 @@
-# Translating ArduDeck
+# Перевод ArduDeck
 
-ArduDeck ships in English and German. If you fly in another language and want ArduDeck to speak it, this guide is for you. You do not need to know React or TypeScript: a translation is a folder of JSON files.
+В этом форке доступны русский, английский, немецкий и традиционный китайский языки. Чтобы улучшить перевод или добавить новый язык, не требуется знание React и TypeScript: перевод хранится в папке с JSON-файлами.
 
-> **Before you start: the license agreement is required.** Every contribution to ArduDeck, translations included, requires accepting the [Contributor License Agreement](CLA.md). Your pull request description must contain this exact line:
->
-> ```
-> I have read and agree to the ArduDeck Contributor License Agreement (CLA.md).
-> ```
->
-> Pull requests without it are closed automatically. Add the line to the description and the pull request reopens by itself. Once you have accepted it in one pull request, your later ones are covered.
+Русская редакция руководства обновлена 27.10.2026. Состав текущего перевода описан в [TRANSLATION-RU.md](TRANSLATION-RU.md), согласованные русские термины — в [глоссарии](tools/i18n/glossary-ru.md).
 
-Questions, or want to tell others you are working on a language so nobody duplicates it? Post in the [community forum](https://forum.ardudeck.com) or on [Discord](https://discord.gg/JX2JdVXPPC).
+> **Если вы отправляете перевод в исходный ArduDeck**, его автор требует принятия [Contributor License Agreement](CLA.md), в том числе для переводов. Порядок и точная строка согласия приведены в [CONTRIBUTING.md](CONTRIBUTING.md). Публикация этого форка не является принятием CLA. Юридические документы сохранены на языке оригинала.
+
+Если хотите согласовать работу над языком, откройте Issue в выбранном репозитории. Обсудить перевод исходного проекта можно на [форуме сообщества](https://forum.ardudeck.com) или в [Discord](https://discord.gg/JX2JdVXPPC).
 
 ---
 
-## How it works
+## Как устроен перевод
 
-All text lives in `apps/desktop/src/shared/i18n/locales/`:
+Словари интерфейса находятся в `apps/desktop/src/shared/i18n/locales/`:
 
-```
+```text
 locales/
-  en/          English, the source of truth
+  en/          английский: исходный словарь
     common.json
     mission.json
     parameters.json
-    ...        one file per area of the app (55 files)
-  de/          German, same files, same keys
+    ...        по одному файлу на раздел, сейчас 56 файлов
+  ru/          русский: те же ключи и дополнительные формы числительных
+  de/          немецкий
+  zh-TW/       традиционный китайский
 ```
 
-Each file maps keys to text. The keys stay exactly as they are; you only translate the values:
+Каждый файл сопоставляет ключи и текст. Ключи сохраняются, переводятся значения. Например, исходный текст:
 
 ```json
 {
@@ -39,98 +37,164 @@ Each file maps keys to text. The keys stay exactly as they are; you only transla
 }
 ```
 
-A new folder is picked up automatically: once `locales/fr/` exists, French appears in **Settings > Language**, named in its own language ("Français"). Anything you have not translated yet falls back to English, so you can ship a partial translation and fill it in over time.
+В переводе:
+
+```json
+{
+  "waypointTable": {
+    "holdTime": "Время ожидания",
+    "deleteConfirm": "Удалить точки маршрута ({{count}})?"
+  }
+}
+```
+
+Новая папка определяется автоматически. После появления `locales/fr/` французский язык будет доступен в **Настройки → Язык** под собственным названием «Français». Для непереведённых ключей используется английский текст, поэтому новый перевод можно дополнять постепенно.
+
+Сообщения прошивки, внешние описания параметров, сторонние модули и пользовательские названия могут поступать из других источников. Наличие русского словаря приложения не переводит их автоматически.
 
 ---
 
-## Starting a new language
+## Добавление нового языка
 
-1. Fork the repository and set it up (see [Building from Source](README.md#building-from-source)).
-2. Copy the English folder and name it after the [language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) (`fr`, `es`, `pl`, `pt-BR` ...):
+1. Создайте форк и подготовьте рабочую среду: [сборка из исходников](README.md#building-from-source).
+2. Скопируйте английскую папку и назовите новую по [коду языка](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes), например `fr`, `es`, `pl`, `pt-BR`.
+
+   В Bash:
+
    ```bash
    cp -r apps/desktop/src/shared/i18n/locales/en apps/desktop/src/shared/i18n/locales/fr
    ```
-3. Translate the values file by file. Good files to start with, because they are what everyone sees first: `common.json`, `navigation.json`, `connection.json`, `settings.json`, `telemetry.json`, `mission.json`.
-4. Run the app (`pnpm dev`), pick your language in **Settings > Language**, and look at your text in place. Labels sit in tight spaces; seeing them is the only way to know they fit.
-5. Check your files (see [Checking your work](#checking-your-work)) and open a pull request.
 
-Improving an existing language works the same way: edit the files in its folder.
+   В PowerShell:
+
+   ```powershell
+   Copy-Item -Recurse apps/desktop/src/shared/i18n/locales/en apps/desktop/src/shared/i18n/locales/fr
+   ```
+
+3. Переводите значения по файлам. Удобно начать с наиболее заметных разделов: `common.json`, `navigation.json`, `connection.json`, `settings.json`, `telemetry.json`, `mission.json`.
+4. Запустите приложение (`pnpm dev`), выберите язык в **Настройки → Язык** и проверьте тексты на экранах. Подписи в кнопках и приборах должны помещаться в доступное место.
+5. Выполните [проверки](#checking-your-work) и откройте Pull Request в выбранный репозиторий.
+
+Для улучшения существующего языка редактируйте файлы в его папке.
 
 ---
 
-## Rules for the text
+## Правила текста
 
-### Keep these exactly as they are
+### Что нужно сохранить точно
 
-- **Placeholders** in double braces: `{{count}}`, `{{name}}`, `{{speed}}`. Move them wherever your grammar needs them, but do not rename, translate or drop them.
-- **Tags** in angle brackets: `<b>Arm</b>` becomes `<b>...</b>` around your translated word. Keep the same tags.
-- **Keys**: never rename, add or remove keys. If English has a key, your file has the same key.
+- **Подстановки в двойных фигурных скобках:** `{{count}}`, `{{name}}`, `{{speed}}`. Их можно переставлять по правилам языка, но нельзя переименовывать, переводить или удалять.
+- **Теги в угловых скобках:** при переводе `<b>Arm</b>` сохраняются `<b>` и `</b>`, меняется текст между ними.
+- **Ключи:** имена исходных ключей должны совпадать с английским словарём. Дополнительные ключи допустимы для требуемых языком форм числительных, например `_few` и `_many` в русском. Для нового смысла, которого нет в исходном словаре, сначала добавляется согласованный английский ключ.
+- **Технические значения:** числа, знаки, углы, диапазоны и направление действий. Нельзя заменять −60° на −90° или менять смысл включения и выключения.
+- **Ссылки и примеры кода:** не меняйте адреса и программные идентификаторы в рамках обычного перевода.
 
-### Do not translate
+### Что не переводится
 
-- Flight mode names: Loiter, RTL, Stabilize, AltHold, Guided, Auto ...
-- Parameter names (`ARMING_CHECK`, `SERVO9_MIN`), MAVLink message and command names (`HEARTBEAT`, `MAV_CMD_*`).
-- Brand, product, board and protocol names: ArduPilot, Betaflight, iNav, MAVLink, ExpressLRS, CRSF, Matek ...
-- Unit symbols: m/s, km/h, V, mAh, Hz, °.
-- Keyboard shortcuts: Ctrl+Z.
+- Названия режимов полёта: Loiter, RTL, Stabilize, AltHold, Guided, Auto и другие.
+- Имена параметров, например `ARMING_CHECK`, `SERVO9_MIN`, а также сообщений и команд MAVLink: `HEARTBEAT`, `MAV_CMD_*`.
+- Названия продуктов, плат, марок и протоколов: ArduPilot, Betaflight, iNav, MAVLink, ExpressLRS, CRSF, Matek и другие.
+- Обозначения единиц: m/s, km/h, V, mAh, Hz, °.
+- Сочетания клавиш, например Ctrl+Z.
 
-Text that comes from the flight controller itself (parameter descriptions, messages from the vehicle) is not in these files and stays in English; that is expected.
+Тексты самого полётного контроллера, в том числе сообщения и загружаемые описания параметров, не входят в эти файлы и могут оставаться на исходном языке.
 
-### Plurals
+### Формы числительных
 
-Some keys come in pairs ending in `_one` and `_other`:
+В английском встречаются пары с окончаниями `_one` и `_other`:
 
 ```json
-"waypoints_one": "{{count}} waypoint",
-"waypoints_other": "{{count}} waypoints"
+{
+  "waypoints_one": "{{count}} waypoint",
+  "waypoints_other": "{{count}} waypoints"
+}
 ```
 
-Use the plural forms your language has. French needs `_one` and `_other`; Polish, Russian and Czech also need `_few` and `_many`; Arabic adds `_zero` and `_two`; Japanese and Chinese use only `_other`. The [i18next plural guide](https://www.i18next.com/translation-function/plurals) lists the forms for every language.
+В русском нужны четыре категории:
 
-### Style
+```json
+{
+  "waypoints_one": "{{count}} точка маршрута",
+  "waypoints_few": "{{count}} точки маршрута",
+  "waypoints_many": "{{count}} точек маршрута",
+  "waypoints_other": "{{count}} точки маршрута"
+}
+```
 
-- **Short wins.** Many labels sit on buttons and in instrument readouts. If your language runs long, prefer the shortest correct term over a literal translation.
-- **Use the words pilots use.** Where pilots in your language say the English word (arm, failsafe, geofence), keep it. A dictionary translation nobody uses on the field is worse than the English.
-- **Be consistent.** Pick one word for vehicle, waypoint, flight controller and so on, and keep it everywhere. Writing a short glossary helps; see [`tools/i18n/glossary-de.md`](tools/i18n/glossary-de.md) for the German one, and feel free to add `glossary-<code>.md` for yours.
-- **No em dashes** (the long dash). Use a comma, a colon or a plain hyphen instead. The checker rejects them.
+Проверяйте как минимум значения 0, 1, 2, 5, 11, 21, 22, 25, 101 и дробное число, если поле допускает дроби. Категория `_other` используется, в частности, для дробных значений; её нельзя удалять.
+
+Набор категорий зависит от языка и определяется правилами `Intl.PluralRules`, используемыми i18next. Для арабского, например, нужны также `_zero` и `_two`, а японский и китайский используют `_other`. Подробности: [числительные в i18next](https://www.i18next.com/translation-function/plurals).
+
+### Стиль
+
+- **Пишите кратко и понятно.** Для кнопок и приборов выбирайте короткую точную формулировку, а не буквальный перевод, который не помещается.
+- **Сохраняйте смысл для оператора.** Предупреждение, команда и описание состояния должны различаться. Не путайте разрешение работы двигателя с включением блокировки.
+- **Используйте принятую терминологию.** Для русского языка согласованы «полётный контроллер», «точка маршрута», «арминг», «дизарминг», «аварийная защита» и другие термины из [глоссария](tools/i18n/glossary-ru.md).
+- **Будьте последовательны.** Одно понятие должно называться одинаково во всех разделах. Для нового языка можно добавить `tools/i18n/glossary-<код>.md`; пример немецкого — [glossary-de.md](tools/i18n/glossary-de.md).
+- **В значениях JSON не используйте длинное тире `—`.** Заменяйте его запятой, двоеточием или обычным дефисом: штатная проверка отклоняет длинное тире. Это правило касается словарей интерфейса.
 
 ---
 
-## Checking your work
+<a id="checking-your-work"></a>
 
-From the repository root:
+## Проверка перевода
+
+Из корня репозитория запустите проверку нужного языка:
 
 ```bash
 node tools/i18n/verify-locale.mjs fr
 ```
 
-It compares your folder against English and reports:
+Для русского перевода запустите обе команды:
 
-| Message | What to do |
+```bash
+node tools/i18n/verify-locale.mjs ru
+node tools/i18n/verify-ru.mjs
+```
+
+Первая сравнивает словарь с английским и сообщает о проблемах:
+
+| Сообщение | Что проверить |
 |---|---|
-| `missing <key>` | A key English has and you do not. Translate it (or leave it out for now; it shows in English). |
-| `extra key <key>` | A key English does not have. Usually a typo in the key or a key that was renamed; remove it. |
-| `placeholders differ` | A `{{...}}` was changed or dropped. Copy it back exactly. |
-| `tags differ` | A `<b>`-style tag was changed or dropped. |
-| `em dash` | Replace the long dash. |
-| `INVALID JSON` | A missing comma or quote. Most editors highlight the line. |
+| `missing <key>` | В английском есть ключ, которого нет в переводе. Добавьте перевод; до этого приложение покажет английский текст. |
+| `extra key <key>` | Возможны опечатка, переименование или устаревший ключ. Требуемые языку формы числительных сохраняйте. |
+| `placeholders differ` | Подстановка `{{...}}` изменилась или исчезла. Восстановите её точно. |
+| `tags differ` | Изменился или исчез тег, например `<b>`. |
+| `em dash` | Уберите длинное тире из значения JSON. |
+| `INVALID JSON` | Нарушен синтаксис: например, пропущена запятая или кавычка. |
 
-The last line counts strings that are still identical to English, which is a quick way to find what is left. You can check single files too: `node tools/i18n/verify-locale.mjs fr mission settings`.
+Строгая русская проверка дополнительно контролирует все категории числительных, подстановки, теги, ссылки, имена параметров и отдельные числовые подписи.
 
-A partial translation is welcome; missing keys simply show in English. Problems with placeholders, tags or JSON must be fixed before merging, because they break the text on screen.
+В конце выводится число строк, совпадающих с английскими. Такие совпадения нужно просмотреть вручную: названия продуктов, протоколов, единицы и другие технические обозначения часто должны оставаться неизменными. Можно проверить отдельные файлы:
+
+```bash
+node tools/i18n/verify-locale.mjs fr mission settings
+```
+
+Неполный новый перевод может использовать английский текст для пропущенных ключей. Ошибки JSON, подстановок и тегов нужно устранить до слияния: они ломают отображение текста. Для русского перевода этого форка сохраняйте полное соответствие актуальному английскому словарю.
+
+Автоматические проверки не оценивают качество смысла. Просмотрите предупреждения, подписи приборов, диалоги и маленькие окна. Для сложных разделов полезна независимая проверка переводчиком, знакомым с предметной областью.
 
 ---
 
-## Keeping a translation up to date
+## Поддержание актуальности
 
-The app keeps changing, and new English text arrives with it. To see what is new for your language after pulling the latest code, run the checker again: every `missing` line is a new string. Contributors adding features write the English (and German) text; other languages catch up through translators, and until then the new text shows in English.
+После обновления исходного кода запускайте проверку снова: строки `missing` показывают новые ключи. Пока перевод не добавлен, приложение использует английский текст.
 
-If you maintain a language long-term, say so in your pull request: we can add it to the automatic checks so changes that break it are caught before they land.
+При добавлении функции обновляйте исходный словарь и затронутые переводы. Не копируйте английский текст в русский файл только ради успешной проверки. Если значение является техническим идентификатором, оставьте его и проверьте осознанно.
+
+Проверочные скрипты русского форка доступны локально. Автоматический запуск именно этих русских проверок в GitHub Actions пока не подключён. У исходного проекта есть собственный порядок добавления сопровождаемых языков в автоматические проверки; при долгосрочном сопровождении языка укажите это в своём Pull Request.
 
 ---
 
-## Submitting
+## Отправка изменений
 
-Open a pull request with your language folder (and glossary, if you wrote one). Its description must contain the license line from the top of this guide (`I have read and agree to the ArduDeck Contributor License Agreement (CLA.md).`), or it is closed automatically. Screenshots of a few screens in your language are a great help for review.
+Откройте Pull Request с файлами языка и, при необходимости, глоссарием. Укажите, какие разделы переведены, как проверены числительные, какие проверки выполнены и остались ли непереведённые строки. Приложите несколько снимков интерфейса.
 
-Thank you for helping pilots fly in their own language.
+Для отправки **в исходный ArduDeck** сначала прочитайте CLA и правила в [CONTRIBUTING.md](CONTRIBUTING.md). Если вы принимаете соглашение, его автоматическая проверка требует точную строку:
+
+```text
+I have read and agree to the ArduDeck Contributor License Agreement (CLA.md).
+```
+
+Решение о принятии соглашения принимает сам участник. Эта цитата не выражает согласия от его имени.

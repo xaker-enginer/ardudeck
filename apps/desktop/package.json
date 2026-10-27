@@ -1,14 +1,15 @@
 {
   "name": "@ardudeck/desktop",
-  "version": "0.1.2",
-  "description": "ArduDeck - Desktop Application",
+  "productName": "ArduDeck RU",
+  "version": "0.1.2-ru.1",
+  "description": "ArduDeck RU - неофициальная русская сборка",
   "author": {
     "name": "rubenCodeforges",
     "email": "ruben@codeforges.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rubenCodeforges/ardudeck.git"
+    "url": "https://github.com/xaker-enginer/ardudeck.git"
   },
   "main": "./out/main/index.js",
   "type": "module",
@@ -28,7 +29,8 @@
     "i18n:check": "node ../../tools/i18n/scan.cjs check && node ../../tools/i18n/verify-locale.mjs de",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "package:ru:win": "node scripts/package-ru-win.mjs"
   },
   "dependencies": {
     "@ardudeck/comms": "workspace:*",
@@ -107,13 +109,13 @@
     "zod": "^4.3.6"
   },
   "build": {
-    "appId": "com.ardudeck.desktop",
-    "productName": "ArduDeck",
+    "appId": "io.github.xaker-enginer.ardudeck.ru",
+    "productName": "ArduDeck RU",
     "protocols": [
       {
-        "name": "ArduDeck",
+        "name": "ArduDeck RU",
         "schemes": [
-          "ardudeck"
+          "ardudeck-ru"
         ]
       }
     ],
@@ -122,7 +124,7 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "rubenCodeforges",
+        "owner": "xaker-enginer",
         "repo": "ardudeck"
       }
     ],
@@ -176,7 +178,8 @@
       "**/*.node",
       "node_modules/@ardudeck/sim-engine/**",
       "node_modules/@ardudeck/sim-physics/**",
-      "node_modules/ws/**"
+      "node_modules/ws/**",
+      "node_modules/node-pty/**"
     ],
     "icon": "resources/icon",
     "win": {
@@ -187,14 +190,21 @@
       ]
     },
     "nsis": {
-      "artifactName": "${productName}-${version}-win-${arch}-setup.${ext}",
+      "artifactName": "ArduDeck-RU-${version}-win-${arch}-setup.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "perMachine": false,
-      "createDesktopShortcut": true
+      "createDesktopShortcut": true,
+      "installerLanguages": [
+        "ru_RU",
+        "en_US"
+      ],
+      "language": "1049",
+      "displayLanguageSelector": true,
+      "license": "../../LICENSE"
     },
     "portable": {
-      "artifactName": "${productName}-${version}-win-${arch}-portable.${ext}"
+      "artifactName": "ArduDeck-RU-${version}-win-${arch}-portable.${ext}"
     },
     "mac": {
       "icon": "resources/icon.icns",
@@ -231,5 +241,6 @@
     "appImage": {
       "artifactName": "${productName}-${version}-${arch}.${ext}"
     }
-  }
+  },
+  "license": "GPL-3.0"
 }

@@ -1,0 +1,5 @@
+# Preserve original licence bytes: their SHA-256 is pinned in manifest.json.
+tools/third-party-licenses/*.LICENSE -text -whitespace
+apps/desktop/resources/bin/win32/MEDIAMTX-LICENSE -text
+# Generated notices keep the original licence formatting and stable LF hashes.
+apps/desktop/resources/THIRD-PARTY-NOTICES.txt text eol=lf -whitespace

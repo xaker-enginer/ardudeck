@@ -1,6 +1,6 @@
 {
   "name": "ardudeck",
-  "version": "0.1.2",
+  "version": "0.1.2-ru.1",
   "private": true,
   "description": "ArduDeck - Modern Ground Control Station",
   "author": {
@@ -10,11 +10,11 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rubenCodeforges/ardudeck.git"
+    "url": "https://github.com/xaker-enginer/ardudeck.git"
   },
-  "homepage": "https://github.com/rubenCodeforges/ardudeck#readme",
+  "homepage": "https://github.com/xaker-enginer/ardudeck#readme",
   "bugs": {
-    "url": "https://github.com/rubenCodeforges/ardudeck/issues"
+    "url": "https://github.com/xaker-enginer/ardudeck/issues"
   },
   "keywords": [
     "ardupilot",
@@ -44,7 +44,8 @@
     "sitl:build": "./tools/build-sitl-mac-arm64.sh",
     "sitl:publish": "./tools/build-sitl-mac-arm64.sh --publish",
     "prepare": "husky",
-    "sign:dev-electron": "bash tools/sign-dev-electron.sh"
+    "sign:dev-electron": "bash tools/sign-dev-electron.sh",
+    "package:ru:win": "pnpm sync-version && pnpm --filter @ardudeck/desktop package:ru:win"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.18.2",

@@ -68,6 +68,9 @@ process.on('unhandledRejection', (reason: unknown) => {
 
 const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
 
+// The Russian fork keeps its settings and instance lock separate from upstream.
+app.name = 'ArduDeck RU';
+
 // ArduDeck OS desktop surface: a second, chrome-less instance that the OS shell
 // pins to the desktop layer (map, synthetic vision, instruments). It gets its
 // own profile so it holds its own single-instance lock and runs next to the
@@ -75,7 +78,7 @@ const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
 const isDesktopSurface = process.argv.includes('--desktop-surface');
 if (isDesktopSurface) {
   process.env['ARDUDECK_DESKTOP_SURFACE'] = '1';
-  app.setPath('userData', join(app.getPath('appData'), 'ardudeck-desktop-surface'));
+  app.setPath('userData', join(app.getPath('appData'), 'ardudeck-ru-desktop-surface'));
 }
 
 // Single-instance lock so ardudeck:// deep links route to the running app
@@ -88,10 +91,6 @@ if (!gotSingleInstanceLock) {
 // Track the main window so deep-link handlers can focus/message it.
 let mainWindowRef: BrowserWindow | null = null;
 setupDeepLinks(() => mainWindowRef);
-
-// Set app name early to ensure consistent userData path in dev mode
-// This ensures electron-store saves to %APPDATA%/ardudeck/ instead of %APPDATA%/Electron/
-app.name = 'ardudeck';
 
 // Desktop app, not a web page: voice alerts (incl. the boot greeting) must
 // play without waiting for a first click.
@@ -412,7 +411,7 @@ app.whenReady().then(() => {
     const resourcesPath = isDev
       ? join(__dirname, '../../resources')
       : join(app.getAppPath(), 'resources');
-    app.dock.setIcon(join(resourcesPath, 'icon.png'));
+    app.dock?.setIcon(join(resourcesPath, 'icon.png'));
   }
 
   // Setup tile cache protocol handler (must be after app.ready)
