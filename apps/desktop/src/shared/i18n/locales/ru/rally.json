@@ -1,0 +1,23 @@
+{
+  "rallyListPanel": {
+    "alt": "Высота: {{value}}",
+    "breakAlt": "Высота выхода",
+    "breakAltHint": "Высота выхода из барражирования для начала посадки",
+    "detailsTitle": "Точка сбора R{{n}}",
+    "downloading": "Получение...",
+    "empty": "Нет точек сбора",
+    "emptyHint": "Нажмите «Добавить точку сбора» на карте, чтобы создать её",
+    "flags": "Флаги",
+    "landHeading": "Курс посадки (°)",
+    "landHeadingHint": "0 = любое направление",
+    "landImmediately": "Посадка сразу (без барражирования)",
+    "landIntoWind": "Посадка против ветра",
+    "pointCount_one": "{{count}} точка",
+    "pointCount_few": "{{count}} точки",
+    "pointCount_many": "{{count}} точек",
+    "pointCount_other": "{{count}} точки",
+    "subtitle": "Места аварийной посадки",
+    "title": "Точки сбора",
+    "uploading": "Запись..."
+  }
+}

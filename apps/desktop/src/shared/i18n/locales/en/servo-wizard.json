@@ -115,12 +115,12 @@
     },
     "surface": {
       "aileronLeft": {
-        "description": "Rolls the plane left when down",
+        "description": "Rolls the plane right when down",
         "name": "Left Aileron",
         "shortName": "L Ail"
       },
       "aileronRight": {
-        "description": "Rolls the plane right when down",
+        "description": "Rolls the plane left when down",
         "name": "Right Aileron",
         "shortName": "R Ail"
       },

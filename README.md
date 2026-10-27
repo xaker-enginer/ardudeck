@@ -1,3 +1,13 @@
+## Русский перевод
+
+Это неофициальный форк [ArduDeck](https://github.com/rubenCodeforges/ardudeck) с русским интерфейсом, поддерживаемый [xaker-enginer](https://github.com/xaker-enginer). Изменения от 27.10.2026: русская локализация, проверки перевода, перевод подсказки удаления точки маршрута и исправление описаний элеронов. Автор исходного проекта: Ruben M (rubenCodeforges).
+
+Выбор языка: **Settings → Language → Русский**. Подробности, границы перевода и проверка: [Русская локализация](TRANSLATION-RU.md).
+
+Перевод опубликован в исходниках этого форка под **GPL-3.0**. Исходные [лицензия](LICENSE), [исключение для модулей](MODULE-EXCEPTION.md) и уведомления об авторстве сохранены. Ссылки на официальные релизы ниже ведут к сборкам исходного проекта; они не включают изменения этого форка.
+
+---
+
 <p align="center">
   <img src="apps/desktop/resources/banner.png" alt="ArduDeck" />
 </p>
@@ -268,11 +278,13 @@ ArduDeck includes a built-in bug reporting tool (bug icon in the sidebar). It co
 
 ## Languages & Translating
 
-ArduDeck is available in **English** and **German** (Settings > Language). Want it in your language? Translations are plain JSON files, no programming needed: see the [translation guide](TRANSLATING.md).
+This fork includes **Russian**, **English**, **German**, and **Traditional Chinese** (Settings > Language). See [Russian localization](TRANSLATION-RU.md) for the scope of the Russian translation. Translations are plain JSON files; see the [translation guide](TRANSLATING.md).
 
 ---
 
 ## Contributing
+
+The contribution and CLA instructions below apply to submissions to the **original ArduDeck project**. Publishing this translation in a separate fork does not record acceptance of the CLA.
 
 Contributions are welcome, including translations (see [TRANSLATING.md](TRANSLATING.md)). **Every contribution requires accepting the [Contributor License Agreement](CLA.md)**: pull requests without the agreement line in their description are closed automatically. [CONTRIBUTING.md](CONTRIBUTING.md) has the line and the workflow. Please read [CONTRIBUTING.md](CONTRIBUTING.md) first (it covers the CLA and workflow), then:
 

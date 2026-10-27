@@ -1,0 +1,26 @@
+{
+  "debugConsole": {
+    "console": "Консоль",
+    "dockBottom": "Закрепить внизу",
+    "dockLeft": "Закрепить слева",
+    "dockRight": "Закрепить справа",
+    "entries_one": "{{count}} запись",
+    "entries_other": "{{count}} записи",
+    "filter": {
+      "all": "Все",
+      "error": "Ошибка",
+      "info": "Информация",
+      "packet": "Пакет"
+    },
+    "fix": "Исправить ›",
+    "jumpToLatest": "↓ К последним (пауза)",
+    "msgs_one": "{{count}} сообщение",
+    "msgs_other": "{{count}} сообщения",
+    "noLogEntries": "В журнале нет записей",
+    "noMessages": "Нет сообщений от автопилота",
+    "entries_few": "{{count}} записи",
+    "entries_many": "{{count}} записей",
+    "msgs_few": "{{count}} сообщения",
+    "msgs_many": "{{count}} сообщений"
+  }
+}

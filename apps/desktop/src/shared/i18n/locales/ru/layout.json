@@ -1,0 +1,50 @@
+{
+  "appShell": {
+    "about": "Об ArduDeck",
+    "clickToDisconnect": "Нажмите для отключения",
+    "disconnected": "Отключено",
+    "fleetCount": "Группа ({{count}})",
+    "fleetTitle": "Группа подключена по многобортовым каналам. Нажмите для открытия телеметрии.",
+    "noneSelected": " · ничего не выбрано",
+    "staleDisconnect": "Нет данных {{seconds}} с. Нажмите для отключения",
+    "staleShort": "Нет данных {{seconds}} с",
+    "voiceMuted": "Голосовые уведомления выключены. Нажмите для включения",
+    "voiceOn": "Голосовые уведомления включены. Нажмите для выключения",
+    "waiting": "Ожидание...",
+    "osBadge": "ОС",
+    "osBadgeTitle": "Работает на {{osName}}. Подключение к аппарату и кэш параметров предоставляет система."
+  },
+  "armDisarm": {
+    "arm": "АРМИНГ",
+    "armNotConfigured": "Режим ARM не настроен в FC. Назначьте канал AUX для ARM на вкладке «Режимы».",
+    "armTitle": "Арминг",
+    "armingBlocked": "Арминг заблокирован",
+    "disarm": "ДИЗАРМИНГ",
+    "disarmTitle": "Дизарминг",
+    "forceArm": "ПРИНУД. АРМИНГ",
+    "forceArmHint": "Обойти проверки безопасности перед армингом",
+    "forceArmLabel": "Принудительный арминг",
+    "forceArmTitle": "Принудительный арминг (без проверок)",
+    "mspUnknown": "Неизвестно",
+    "preArmFailed": "Проверки перед армингом не пройдены",
+    "title": "{{action}} - правая кнопка мыши открывает варианты"
+  },
+  "quickLaunch": {
+    "areaEditorDesc": "Рисование областей миссии: несколько областей, исключения, KML",
+    "button": "Быстрый запуск",
+    "buttonTitle": "Быстрый запуск: открыть инструменты в отдельных окнах",
+    "inspectorDesc": "Сообщения и графики в реальном времени",
+    "simWorldDesc": "Полёты SITL в сохраняемом 3D-мире: препятствия, геозоны, миссии",
+    "telemetryDashboard": "Панель телеметрии",
+    "telemetryDashboardDesc": "Телеметрия в реальном времени на отдельном экране",
+    "locusDesc": "Открыть ArduDeck Locus: PPK, фотограмметрия и LiDAR"
+  },
+  "updateBanner": {
+    "available": "Доступна версия <b>ArduDeck {{version}}</b>{{name}}",
+    "downloading": "Скачивание <b>ArduDeck {{version}}</b>",
+    "newVersion": "новая версия",
+    "ready": "<b>ArduDeck {{version}}</b> готова к установке",
+    "restartToUpdate": "Перезапустить для обновления",
+    "viewRelease": "Открыть выпуск"
+  }
+}

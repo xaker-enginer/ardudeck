@@ -1,0 +1,19 @@
+{
+  "dashboard": {
+    "accCalStarted": "Калибровка акселерометра начата. Не двигайте плату!",
+    "armedBadge": "АРМИНГ ВЫПОЛНЕН",
+    "calibrateAcc": "Калибровать ACC",
+    "connectedOn": "{{variant}} {{version}} на {{board}}",
+    "cpuLoad": "Нагрузка CPU",
+    "cycleTime": "Время цикла",
+    "disarmedBadge": "ДИЗАРМИНГ ВЫПОЛНЕН",
+    "fix": "Исправить",
+    "lastUpdate": "Последнее обновление: {{time}}",
+    "rebootConfirm": "Перезагрузить полётный контроллер?",
+    "refreshPorts": "Обновить порты",
+    "startTelemetry": "Запустить телеметрию",
+    "stopTelemetry": "Остановить телеметрию",
+    "subtitle": "Подключение к платам Betaflight, iNav или Cleanflight",
+    "used": "Использовано"
+  }
+}

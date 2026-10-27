@@ -19,6 +19,9 @@ export async function initRendererI18n(): Promise<void> {
 export function I18nRoot({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState(i18n.language);
   useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+  useEffect(() => {
     const onChange = (lng: string) => setLanguage(lng);
     i18n.on('languageChanged', onChange);
     return () => i18n.off('languageChanged', onChange);

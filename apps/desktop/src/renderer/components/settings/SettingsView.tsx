@@ -1465,19 +1465,19 @@ export function SettingsView() {
                     {/* Type-specific primary spec */}
                     <div className="bg-surface-overlay-subtle rounded-lg p-2">
                       <div className="text-xs text-content-secondary">
-                        {activeVehicle.type === 'copter' && 'Frame'}
-                        {activeVehicle.type === 'plane' && 'Wingspan'}
-                        {activeVehicle.type === 'vtol' && 'Wingspan'}
-                        {activeVehicle.type === 'rover' && 'Drive'}
-                        {activeVehicle.type === 'boat' && 'Hull'}
-                        {activeVehicle.type === 'sub' && 'Depth'}
+                        {activeVehicle.type === 'copter' && t('settings:settingsView.edit.frameSize')}
+                        {activeVehicle.type === 'plane' && t('settings:settingsView.edit.wingspan')}
+                        {activeVehicle.type === 'vtol' && t('settings:settingsView.edit.wingspan')}
+                        {activeVehicle.type === 'rover' && t('settings:settingsView.edit.driveType')}
+                        {activeVehicle.type === 'boat' && t('settings:settingsView.edit.hull')}
+                        {activeVehicle.type === 'sub' && t('settings:settingsView.edit.maxDepthRating')}
                       </div>
                       <div className="text-sm text-content font-medium">
-                        {activeVehicle.type === 'copter' && `${fmtLength(activeVehicle.frameSize || 127, dimensionUnit)} ${activeVehicle.motorCount === 6 ? 'Hex' : activeVehicle.motorCount === 8 ? 'Octo' : 'Quad'}`}
+                        {activeVehicle.type === 'copter' && `${fmtLength(activeVehicle.frameSize || 127, dimensionUnit)} ${t(`settings:settingsView.card.motor.${activeVehicle.motorCount === 6 ? '6' : activeVehicle.motorCount === 8 ? '8' : '4'}`)}`}
                         {activeVehicle.type === 'plane' && fmtLength(activeVehicle.wingspan || 1200, dimensionUnit)}
                         {activeVehicle.type === 'vtol' && fmtLength(activeVehicle.wingspan || 1500, dimensionUnit)}
-                        {activeVehicle.type === 'rover' && (activeVehicle.driveType === 'ackermann' ? 'Car' : activeVehicle.driveType === 'skid' ? 'Skid' : 'Tank')}
-                        {activeVehicle.type === 'boat' && (activeVehicle.hullType ? `${activeVehicle.hullType.charAt(0).toUpperCase()}${activeVehicle.hullType.slice(1)}` : 'Displacement')}
+                        {activeVehicle.type === 'rover' && t(`settings:settingsView.card.drive.${activeVehicle.driveType === 'ackermann' ? 'ackermann' : activeVehicle.driveType === 'skid' ? 'skid' : 'differential'}`)}
+                        {activeVehicle.type === 'boat' && t(`settings:settingsView.edit.${activeVehicle.hullType || 'displacement'}`)}
                         {activeVehicle.type === 'sub' && formatAltitudeFromMeters(activeVehicle.maxDepth ?? 100, altitudeUnit)}
                       </div>
                     </div>
@@ -1557,7 +1557,7 @@ export function SettingsView() {
                 <CircularGauge
                   value={Math.round(estimatedRange / 1000)}
                   max={50}
-                  label={t('common:range')}
+                  label={t('settings:settingsView.range')}
                   unit="km"
                   color="#10b981"
                   size={85}
@@ -1565,10 +1565,10 @@ export function SettingsView() {
               </div>
               {/* Multi-level estimates table */}
               <div className="bg-surface-overlay-subtle rounded-lg overflow-hidden">
-                <div className="grid grid-cols-3 text-[10px] text-content-secondary uppercase tracking-wider px-2 py-1.5 border-b border-subtle">
+                <div className="grid grid-cols-[1fr_0.8fr_1.2fr] text-[10px] text-content-secondary uppercase tracking-wider px-2 py-1.5 border-b border-subtle">
                   <span>{t('settings:settingsView.usage')}</span>
                   <span className="text-center">{t('common:time')}</span>
-                  <span className="text-right">{t('common:range')}</span>
+                  <span className="text-right">{t('settings:settingsView.range')}</span>
                 </div>
                 {[
                   { pct: 60, label: '60%', color: 'text-green-400', note: t('settings:settingsView.note.safe') },
@@ -1578,7 +1578,7 @@ export function SettingsView() {
                   const scaledTime = Math.round(estimatedFlightTime * (pct / 80));
                   const scaledRange = Math.round(estimatedRange * (pct / 80));
                   return (
-                    <div key={pct} className="grid grid-cols-3 px-2 py-1.5 text-xs border-b border-subtle last:border-0">
+                    <div key={pct} className="grid grid-cols-[1fr_0.8fr_1.2fr] px-2 py-1.5 text-xs border-b border-subtle last:border-0">
                       <span className={`${color} font-medium`}>{label} <span className="text-content-tertiary font-normal">{note}</span></span>
                       <span className="text-center text-content">{formatTime(scaledTime)}</span>
                       <span className="text-right text-content">{formatDistance(scaledRange)}</span>
@@ -4175,7 +4175,7 @@ function VehicleEditModal({
                   rules={VEHICLE_FIELD_RULES.weight!}
                 />
                 <WeightInputField
-                  label={t('settings:settingsView.edit.displacement')}
+                  label={t('settings:settingsView.edit.displacementMass')}
                   valueGrams={vehicle.displacement}
                   onCommit={(grams) => onUpdate({ displacement: grams })}
                   unit={weightUnit}

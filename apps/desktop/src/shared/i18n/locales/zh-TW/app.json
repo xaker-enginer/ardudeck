@@ -73,6 +73,7 @@
     "simWorldDesc": "在持久的 3D 世界中飛行 SITL",
     "sitlDesc": "不需硬體即可測試韌體",
     "title": "歡迎使用 ArduDeck",
-    "waypointsSurveysGeofences": "航點、測繪與地理圍欄"
+    "waypointsSurveysGeofences": "航點、測繪與地理圍欄",
+    "newFeature": "新功能"
   }
 }

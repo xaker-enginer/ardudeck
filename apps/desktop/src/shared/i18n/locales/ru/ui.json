@@ -1,0 +1,35 @@
+{
+  "detachable": {
+    "dockBackHere": "Закрепить здесь",
+    "openInNewWindow": "Открыть «{{title}}» в новом окне",
+    "openInSeparateWindow": "Открыть в отдельном окне"
+  },
+  "errorBoundary": {
+    "labelHitError": "В разделе «{{label}}» произошла ошибка",
+    "somethingWentWrong": "Что-то пошло не так"
+  },
+  "experienceLevelDialog": {
+    "advancedDescription": "Лаконичный интерфейс без обучающих подсказок. Обучающие карточки и встроенные пояснения скрыты.",
+    "beginnerDescription": "Подсказки, пояснения и руководства по всему интерфейсу помогут освоить программу.",
+    "changeAnytime": "Это можно изменить в настройках в любой момент",
+    "subtitle": "Выберите свой уровень опыта для настройки интерфейса",
+    "title": "Добро пожаловать в ArduDeck"
+  },
+  "infoCard": {
+    "tip": "Совет:"
+  },
+  "presetSelector": {
+    "hint": "Нажмите, чтобы применить стиль настройки"
+  },
+  "profileManager": {
+    "namePlaceholder": "Название...",
+    "resetToFactoryDefaults": "Сбросить к заводским настройкам",
+    "saveAsProfile": "Сохранить текущие настройки как профиль"
+  },
+  "rateCurve": {
+    "maxRate": "Макс.: <v>{{maxRate}}°/s</v>"
+  },
+  "tagInput": {
+    "addTags": "Добавить теги..."
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "activeTour": {
+    "nextFeature": "Следующая функция",
+    "nextTitle": "Далее: {{title}}"
+  },
+  "tourLaunchGate": {
+    "apNotInstalled": "ArduPilot SITL ещё не установлен. Откройте раздел SITL и скачайте исполняемый файл; обзор продолжится автоматически после подключения.",
+    "apNotSupported": "ArduPilot SITL не поддерживается на этой платформе.",
+    "connectOwnFc": "Я подключу свой FC",
+    "connectOwnToContinue": "Подключите свой FC для продолжения обзора.",
+    "failedToStartSitl": "Не удалось запустить SITL",
+    "goToSitlInstall": "Перейти к установке SITL",
+    "intro": "Этот обзор показывает функции, которым нужен работающий полётный контроллер. Можно запустить безопасную симуляцию <b>{{sitl}}</b> или подключить свой FC.",
+    "launch": "Запустить {{sitl}}",
+    "needsVehicle": "Для обзора нужен аппарат",
+    "notNow": "Не сейчас",
+    "startingSitl": "Запуск SITL...",
+    "tcpConnectionFailed": "SITL запущен, но соединение TCP не удалось"
+  },
+  "tourPanelsGate": {
+    "layoutAdjustment": "Изменение компоновки",
+    "missing": "Отсутствует: <b>{{panels}}</b>",
+    "panelsNotInLayout": "Этот обзор использует панели, которых нет в текущей компоновке:",
+    "recommendedLayout": "рекомендуемая компоновка",
+    "skipTour": "Пропустить обзор",
+    "switchPrompt": "Переключиться на компоновку <b>{{preset}}</b> для обзора? Текущая останется сохранённой; к ней можно вернуться в списке компоновок в любой момент.",
+    "switchTo": "Переключиться на {{preset}}"
+  },
+  "tourPrompt": {
+    "dontOfferAgain": "Больше не предлагать обзоры",
+    "noThanks": "Нет, спасибо",
+    "quickTour": "Краткий обзор",
+    "remindLater": "Напомнить позже",
+    "showMe": "Показать"
+  }
+}

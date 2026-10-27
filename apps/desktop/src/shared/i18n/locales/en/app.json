@@ -73,6 +73,7 @@
     "simWorldDesc": "Fly SITL in a persistent 3D world",
     "sitlDesc": "Test firmware without hardware",
     "title": "Welcome to ArduDeck",
-    "waypointsSurveysGeofences": "Waypoints, surveys & geofences"
+    "waypointsSurveysGeofences": "Waypoints, surveys & geofences",
+    "newFeature": "New"
   }
 }

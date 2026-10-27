@@ -360,7 +360,8 @@
       "wheelDiameter": "輪徑",
       "wheelbase": "軸距",
       "wingArea": "機翼面積",
-      "wingspan": "翼展"
+      "wingspan": "翼展",
+      "displacementMass": "排水量"
     },
     "editVehicleTitle": "在載具設定檔中編輯載具",
     "estCruise": "預估巡航",
@@ -557,7 +558,8 @@
       "waveHeight": "浪高",
       "windFrom": "風來自 {{dir}}"
     },
-    "weight": "重量"
+    "weight": "重量",
+    "range": "續航距離"
   },
   "signingSection": {
     "active": "使用中",

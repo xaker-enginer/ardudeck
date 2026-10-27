@@ -360,7 +360,8 @@
       "wheelDiameter": "Raddurchmesser",
       "wheelbase": "Radstand",
       "wingArea": "Flügelfläche",
-      "wingspan": "Spannweite"
+      "wingspan": "Spannweite",
+      "displacementMass": "Verdrängung"
     },
     "editVehicleTitle": "Fahrzeug in Fahrzeugprofilen bearbeiten",
     "estCruise": "Gesch. Reiseflug",
@@ -557,7 +558,8 @@
       "waveHeight": "Wellenhöhe",
       "windFrom": "Wind aus {{dir}}"
     },
-    "weight": "Gewicht"
+    "weight": "Gewicht",
+    "range": "Reichweite"
   },
   "signingSection": {
     "active": "aktiv",

@@ -360,10 +360,12 @@
       "wheelDiameter": "Wheel Diameter",
       "wheelbase": "Wheelbase",
       "wingArea": "Wing Area",
-      "wingspan": "Wingspan"
+      "wingspan": "Wingspan",
+      "displacementMass": "Displacement"
     },
     "editVehicleTitle": "Edit vehicle in Vehicle Profiles",
     "estCruise": "Est. Cruise",
+    "range": "Range",
     "estSpeed": "Est. Speed",
     "experienceHint": "Presets control all options below",
     "experienceLevel": "Experience Level",

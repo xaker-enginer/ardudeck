@@ -1,0 +1,38 @@
+{
+  "fenceListPanel": {
+    "aboveMaxAlt": "Выше максимальной высоты",
+    "alt": "Высота: {{value}}",
+    "belowMinAlt": "Ниже минимальной высоты",
+    "breachCount_one": "{{count}} нарушение",
+    "breachCount_few": "{{count}} нарушения",
+    "breachCount_many": "{{count}} нарушений",
+    "breachCount_other": "{{count}} нарушения",
+    "circleCount_one": "{{count}} круг",
+    "circleCount_few": "{{count}} круга",
+    "circleCount_many": "{{count}} кругов",
+    "circleCount_other": "{{count}} круга",
+    "circleRadius": "Круг ({{radius}}m)",
+    "editHint": "Нажмите на зону здесь или на карте, чтобы переместить её, изменить форму или удалить.",
+    "exclusionZones": "Запретные зоны ({{count}})",
+    "fenceBreached": "Геозона нарушена",
+    "inclusionZones": "Разрешённые зоны ({{count}})",
+    "mspUnsupported": "Платы iNav/Betaflight не поддерживают геозоны. Вы можете планировать зоны и сохранять их в файл для справки.",
+    "noExclusionZones": "Нет запретных зон",
+    "noInclusionZones": "Нет разрешённых зон",
+    "noReturnPoint": "Точка возврата не задана",
+    "outsideBoundary": "За границей зоны",
+    "polygonCount_one": "{{count}} многоугольник",
+    "polygonCount_few": "{{count}} многоугольника",
+    "polygonCount_many": "{{count}} многоугольников",
+    "polygonCount_other": "{{count}} многоугольника",
+    "polygonPts": "Многоугольник (точек: {{count}})",
+    "returnPoint": "Точка возврата"
+  },
+  "fenceMapOverlay": {
+    "clickToEdit": "Нажмите, чтобы изменить или удалить эту зону",
+    "delete": "Удалить",
+    "deleteZone": "Удалить эту зону (Del)",
+    "dragToMove": "Перетащите, чтобы переместить всю зону",
+    "rightClickDelete": "Нажмите правой кнопкой, чтобы удалить"
+  }
+}

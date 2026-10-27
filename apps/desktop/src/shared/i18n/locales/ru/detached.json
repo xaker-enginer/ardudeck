@@ -1,0 +1,16 @@
+{
+  "detachedRoot": {
+    "closeTitle": "Закрыть это окно и вернуться в ArduDeck",
+    "dockBack": "Вернуть в главное окно",
+    "keepOnTop": "Держать это окно поверх ArduDeck",
+    "missing": "(отсутствует)",
+    "notRegistered": "componentId <code>{{id}}</code> не зарегистрирован.",
+    "pinned": "Закреплено поверх окон, нажмите, чтобы открепить",
+    "toggleOnTop": "Включить или выключить режим поверх окон",
+    "unknownComponent": "Неизвестный компонент"
+  },
+  "surface": {
+    "linkServiceOff": "Служба связи ArduDeck OS не запущена",
+    "searching": "Поиск аппарата…"
+  }
+}
